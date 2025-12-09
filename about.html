@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamakasi Fight Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <!-- Rimuovo heroicons per evitare problemi CORS -->
+</head>
+<body class="about-page">
+    <!-- Ancora all'inizio assoluto della pagina -->
+    <div id="top"></div>
+    
+    <!-- Contenuti principali del sito -->
+    <div class="main-content">
+        <!-- Logo fisso con sfera di luce -->
+        <div class="fixed-logo">
+            <!-- Sfera di luce dietro il logo -->
+            <div class="light-sphere"></div>
+            <!-- Logo -->
+            <a href="#" onclick="toggleMenu(); return false;" class="logo-link">
+                <img src="logo.svg" class="logo-small" alt="Logo">
+            </a>
+            <!-- Freccia per menu -->
+            <svg class="menu-arrow" onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+        </div>
+
+        <!-- Striscia con effetto lente d'ingrandimento -->
+        <div class="magnifying-strip" id="magnifyingStrip"></div>
+
+        <!-- Menu a cascata -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="classes.html" class="menu-item">Corsi</a>
+            <a href="about.html" class="menu-item">Chi siamo</a>
+            <a href="contacts.html" class="menu-item">Contatti</a>
+            <a href="blog.html" class="menu-item">Blog</a>
+        </div>
+
+        <!-- Sezione Maestri -->
+        <section class="classes-section">
+            <div class="classes-container">
+                <h2 class="classes-title animate-up">I Nostri Maestri</h2>
+                <p class="classes-subtitle animate-up">Conosci gli istruttori della Yamakasi Fight Academy</p>
+                
+                <div class="classes-grid">
+                    <!-- Maestro 1 -->
+                    <div class="class-card animate-up" id="roberto-vecchia">
+                        <div class="class-image">
+                            <img src="img/robertovecchia.png">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Roberto Vecchia</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Sin da bambino ho sempre avuto una passione profonda per le arti marziali e gli sport da combattimento in tutte le sue forme e, dal 1° giorno di pratica, ho sempre messo tutto me stesso nel loro apprendimento e nell’allenamento sia mentale che fisico.
+Oggi dopo tanti anni nulla è cambiato, il bello di queste discipline è che si cerca sempre di migliorare se stessi ed il proprio team… STRONG SPIRIT in STRONG BODY!</p>
+                                <h4>Principali traguardi</h4>
+                                <ul>
+                                    <li>Due volte campione italiano di Kickboxing e Muay Thai</li>
+                                    <li>Campione italiano di Shoot boxe</li>
+                                    <li>Cintura nera di Kickboxing</li>
+                                    <li>Cintura nera di Shoot Boxe</li>
+                                    <li>XII° Khan di Muay Thai (Instructor Red Mongkon)</li>
+                                    <li>Cintura marrone di Ju-Jitsu tradizionale</li>
+                                    <li>per un totale di 28 anni di esperienza!</li>
+                                </ul>
+                            </div>
+                            <div class="instructor-courses">
+                                <h4>Corsi tenuti</h4>
+                                <div class="courses-list" id="courses-roberto-vecchia">
+                                    <!-- I corsi verranno inseriti dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 2 -->
+                    <div class="class-card animate-up" id="andrea-tran">
+                        <div class="class-image" style="background-image: url('img/andreatran.png'); background-position: 50% 10%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Andrea Tran</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>“Non si smette mai di imparare, sia dai propri Maestri sia dai propri Allievi”
+                                <p>Ho sempre avuto un innata passione per le arti marziali.Non solo per le mie origine asiatiche ma soprattutto per la voglia di cimentarmi e sfidare costantemente la mia voglia di apprendere. Ho iniziato relativamente tardi – 2002  –  in un batter d’occhio sono volati 20 anni di pratica marziale. Sono insegnante di Muay Thai e Kickboxing K1.</p>
+                                <p>Discipline in cui ho gareggiato e accumulato esperienza
+                                attraverso la guida del M° Roberto Vecchia e con cui nel 2016 ho aperto Yamakasi Fight Academy.</p>
+                                <p>Proprio attraverso questa nuova realtà che ho conosciuto il Brazilian Jiu Jitsu – con il M° Matteo Cazzola del lineage Leteri.</p>
+                                <p>Dopo anni di striking, la mancanza di una conoscenza marziale a terra era evidente, preso dalla curiosità ho iniziato a frequentare le lezioni sempre più assiduamente e ogni volta con una sete di conoscenza più ampia.</p>
+                                <p>La cosa più speciale del BJJ è che ti entra nello spirito a piccoli passi e non ti molla più! Attualmente sono cintura Azzurra in questa disciplina</p>
+                                </ul>
+                            </div>
+                            <div class="instructor-courses">
+                                <h4>Corsi tenuti</h4>
+                                <div class="courses-list" id="courses-andrea-tran">
+                                    <!-- I corsi verranno inseriti dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 3 -->
+                    <div class="class-card animate-up" id="matteo-cazzola">
+                        <div class="class-image" style="background-image: url('img/matteocazzola.png'); background-position: 50% 35%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Matteo Cazzola</h3>
+                            <div class="class-info">
+                                <span class="class-level">BRAZILIAN JIU-JITSU</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Quando iniziai inconsapevolmente all’età di soli 7 anni con il Judo, guardavo il Maestro Salardi come un esempio a cui ispirarmi…ed oggi dopo 30 anni quella figura da seguire sono io.
+Dal 2003 mi avvicinai al Submission Wrestling (più avanti verrà chiamato Grappling) guidato dai maestri Bertoli.</p>
+                                <p>La vera passione arrivò con il BJJ (Brasilian Jiu Jitsu) a partire dal 2008 quando conobbi i Maestri Leteri : decisi che quella sarebbe diventata la mia strada!
+Oggi sono cintura Nera di BJJ e dirigo il team Fratelli Leteri in Italia, i miei Maestri Leonardo e Marcel guidano le rispettive sedi in Brasile ed Australia.
+Il mio pensiero è che in questa disciplina sia fondamentale che l’insegnante si confronti sempre con i suoi allievi e abbia maturato una esperienza agonistica reale: lottare nei vari campionati ti insegna spesso ciò che non sapevi prima, ti spinge a superare i tuoi limiti ed il confronto con avversari sempre nuovi ti porta fuori dagli schemi e dalla comfort zone che si crea in dojo nella lotta con i compagni di squadra.
+Lì si impara e si evolve rapidamente.
+Oltre ai titoli e alle medaglie che ho conquistato le cose che più contano sono la passione e saper trasmettere la conoscenza tecnica unendola all’esperienza reale maturata.</p>
+                                <p>Questo è quello che offro ai miei studenti ogni giorno.</p>
+                                <h4>Principali traguardi</h4>
+                                <ul>
+                                    <li>2x IBJJF European Open Bronze Medallist (2013 adult, 2017 master)</li>
+                                    <li>1x IBJJF European No-Gi Bronze Medallist (2014 adult</li>
+                                    <li>2x Figmma Italian No-Gi Champion (2011-2012)</li>
+                                    <li>1x IBJJF London Open No-Gi Bronze Medallist (2014 adult)</li>
+                                    <li>5th place FILA World Championship grappling-gi (2012)</li>
+                                    <li>3x UIJJ Italian Open Medallist (2013, 2014, 2016)</li>
+                                    <li>3x UIJJ Milano Challenge Medallist (2013, 2014, 2016)</li>
+                                    <li>3x UIJJ Torino Challenge Medallist (2011, 2014)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 4 -->
+                    <div class="class-card animate-up" id="pietro-vaccari">
+                        <div class="class-image" style="background-image: url('img/pietrovaccari.png'); background-position: 50% 15%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Pietro Vaccari</h3>
+                            <div class="class-info">
+                                <span class="class-level">DAITO RYU AIKIJUJUTSU</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Mi sono avvicinato alle arti marziali a 8 anni, iniziando con il judo, una disciplina a me molto cara. A 18 anni ho iniziato la pratica del Daito Ryu Aiki Jujutsu, una disciplina che mi ha colpito per il suo carico di storia e tradizione, che rimane però tutt’oggi molto attuale ed efficace.
+Il motto della nostra scuola è JITA KYOEI, ciò che ho ricevuto ridono, il che riflette la profonda volontà di trasmissione delle conoscenze che questa scuola, della quale sono orgoglioso di fare parte, offre al prossimo.</p>
+                                <h4>Principali traguardi</h4>
+                                <ul>
+                                    <li>4° Dan Daito Ryu Aiki Jujutsu</li>
+                                    <li>4° Dan Tenshin Shoden Katori Shinto Ryu</li>
+                                    <li>3° Dan Gyokushin Ryu Aikido</li>
+                                    <li>2° Dan Judo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 5 -->
+                    <div class="class-card animate-up" id="michel-lupa">
+                        <div class="class-image">
+                            <img src="img/michellupa.png">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Michel Lupa</h3>
+                            <div class="class-info">
+                                <span class="class-level">TAKEMUSU AIKIDO</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>La mia passione per l’Aikido è nata nel 1996 con il Maestro Luciano LoMonaco al tempo (3° Dan AIKIKAI) Nel 1999 ho incontrato il Maestro Fausto De Compadri (7° Dan F.I.J.L.K.A.M.,6° Dan T.A.A.I, 5° Dan AIKIKAI) e ho iniziato a frequentare il suo dojo. Nel 2014 ho ricevuto la nomina come Responsabile Regionale VENETO settore Aikido.</p>
+                                <h4>Stage con Maestri di alto livello</h4>
+                                <ul>
+                                    <li>M° Stephan Benedetti (6° Dan AIKIKAI)</li>
+                                    <li>M° Fausto De Compadri (7° Dan F.I.J.L.K.A.M.,6° Dan T.A.A.I, 5° Dan AIKIKAI)</li>
+                                    <li>M°Paolo Corallini (7° Dan AIKIKAI)</li>
+                                    <li>M° Bill Witt Shihan (7° Dan AIKIKAI)</li>
+                                    <li>M° Wolfgang Baumgartner (6° Dan AIKIKAI, 6° Dan Iwama Ryu, 5°Dan Iwama Ryu Ken /Jo )</li>
+                                    <li>M° Hitohira Saito</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 6 -->
+                    <div class="class-card animate-up" id="tatiana-rondanin">
+                        <div class="class-image" style="background-image: url('img/tatianarondanin.png'); background-position: 50% 25%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Tatiana Rondanin</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI JUNIOR - MUAY THAI YOUNG</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Da bambina ho provato tanti sport ma nessuno mi ha mai appassionata veramente.
+Solo da ragazza ho conosciuto questa disciplina, che mi ha coinvolto subito!
+Essendo piccola e magrolina mai avrei pensato che uno sport così mi avrebbe reso forte nel fisico, ma soprattutto nello spirito, tanto da combattere la mia grande timidezza e tutte le mie paure.
+Ho frequentato per tanti anni la palestra prima praticando kickboxing per poi passare alla Savate (boxe francese).
+Diventata mamma ho deciso di alimentare questa passione insegnando ai piccoli atleti, continuando così a crescere nello spirito grazie a loro</p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 7 -->
+                    <div class="class-card animate-up" id="giulia-nussdorfer">
+                        <div class="class-image" style="background-image: url('img/giulianussdorfer.png'); background-position: 50% 15%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Giulia Nussdorfer</h3>
+                            <div class="class-info">
+                                <span class="class-level">MARTIAL KIDZ & MARTIAL BABY</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Paracadutista da più di 10 anni mi trasferisco a Verona per lavoro e nel 2019 nasce mia figlia. La laurea in Scienze Motorie mi ha portato ad una maggior consapevolezza del movimento nello sport ed ho spostato il focus da quantità a qualità.</p>
+                                <p>Quando un bambino ha la possibilità di mettersi alla prova in differenti avventure motorie avrà la capacità di costruirsi una mente aperta all’apprendimento e alla conoscenza.</p>
+                                <p>Grata di insegnare in questa scuola.Da quando metti piedi all’ingresso ti fa sentire in una seconda casa.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 8 -->
+                    <div class="class-card animate-up" id="pietro-corradi">
+                        <div class="class-image" style="background-image: url('img/pietrocorradi.png'); background-position: 50% 35%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Corradi Pietro</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Ho iniziato a praticare le arti marziali nel 2012 all’età 15 anni, venendone a contatto attraverso il Taekwondo.
+Dopo due anni di pratica ho deciso di cambiare disciplina, cercandone una completa, immediata ed efficace.</p>
+                                <p>Dopo alcune prove ho scoperto la Muay Thai e la Kickboxing presso la Yamakasi Fight Academy. Sono rimasto colpito dall’immediatezza delle discipline, ma allo stresso momento dai mille dettagli necessari per applicare al meglio le diverse tecniche con la massima efficacia e dal lavoro di strategia che va applicato durante i match.</p>
+                                <p>Per 8 anni ho continuato ad allenarmi ed esercitarmi con passione, fino ad ottenere il diploma da istruttore nel 2021  con il maestro Alfio Romanut.</p>
+                                <p>Ora affianco i miei maestri Roberto Vecchia e Andrea Tran nell’insegnamento delle discipline alla YFA.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 9 -->
+                    <div class="class-card animate-up" id="elia-peraro">
+                        <div class="class-image" style="background-image: url('img/eliaperaro.png'); background-position: 50% 15%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Elia Peraro</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI TEEN & MMA</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Le arti marziali sono parte integrante della mia vita sin da bambino, all’età di sette anni, ho avuto il piacere di avvicinarmi a questo mondo tramite la pratica del Kendō, un’antica disciplina di origine giapponese basata sullo stile di combattimento dei samurai. Quest’arte marziale mi ha accompagnato per undici anni, fino al conseguimento del grado ufficiale di 1° DAN, formandomi sia come persona che come atleta e facendomi provare sulla pelle il mondo delle competizioni sia nazionali che internazionali.</p>
+                                <p>Successivamente, ho praticato per qualche mese il Wing Chun, che mi ha permesso di conoscere il mondo del combattimento a mani nude e mi ha avvicinato agli sport da combattimento, permettendomi di scoprire infine la mia vocazione.
+Attualmente, pratico Muay Thai e Kickboxing, due discipline che mi hanno incantato per la loro praticità, efficacia, capacità di spronare gli atleti a superare ogni limite sia mentale che fisico e per l’ambiente caratterizzato dal rispetto reciproco. Dopo qualche anno di pratica, ho avuto l’opportunità di guidare i corsi Muay Thai Teen e Wonder Women, nei quali ho intenzione di dare tutto me stesso per riuscire a trasmettere la passione e l’amore per queste discipline.</p>
+                                <p>In conclusione, le arti marziali sono una parte fondamentale e insostituibile della mia persona e credo che chiunque debba avvicinarsi a questi mondi per la loro capacità di forgiare il corpo e il carattere dei praticanti.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 10 -->
+                    <div class="class-card animate-up" id="david-scardigno">
+                        <div class="class-image" style="background-image: url('img/davidscardigno.png'); background-position: 50% 15%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">David Scardigno</h3>
+                            <div class="class-info">
+                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Sin da quando ero ragazzo ho sempre adorato quella sensazione che si prova durante e dopo una attività fisico intensa, quando i muscoli dicono basta ma il tuo spirito sa che poi la ricompensa sarà sempre più grande della fatica che stai affrontando.</p>
+                                <p>Con questa attitudine dopo aver provato svariati sport e un anno di Vovinam Viet vo Dao ho cominciato a frequentare circa 12 anni fà la palestra del Maestro Roberto Vecchia e Maestro Andrea Tran, appassionandomi fin da subito alla kickboxing K1 ed al loro splendido modo di insegnare e farti sentire come in famiglia.</p>
+                                <p>Negli anni la passione per gli sport da contatto mi ha sempre più coinvolto portandomi a frequentare anche due palestre di pugilato dal maestro Pierino Ruga e maestro Luca Tescaroli, salvo poi tornare sempre a quello che considero il miglior sport da combattimento per completezza ed efficacia dei colpi ovvero la kickboxing K1 alla Yamakasi Fight Academy.</p>
+                                <p>Oggi continuo ad allenarmi al massimo della mia capacità avendo l’onore di poter affiancare i miei due maestri Roberto ed Andrea nell’insegnamento di questa splendida discplina.</p>
+                                <p>“Ogni grande avventura ha un principio, ma è la strada da percorrere, quella che conduce al suo termine, che riserva la vera gloria!”.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maestro 11 -->
+                    <div class="class-card animate-up" id="ermanno-mazzi">
+                        <div class="class-image" style="background-image: url('img/ermannomazzi.png'); background-position: 50% 15%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Ermanno Mazzi</h3>
+                            <div class="class-info">
+                                <span class="class-level">BRAZILIAN JIU JITSU TEEN & MMA</span>
+                            </div>
+                            <div class="maestro-biography">
+                                <h4>Biografia</h4>
+                                <p>Sono entrato nel mondo delle arti marziali nel 2014 a 16 anni con lo Yoseikan Budo,
+i maestri Rodolfo Amatobene e Vittorio Ciaglia mi hanno insegnato un’arte che comprende ogni aspetto del combattimento, in piedi e a terra, con armi e persino a cavallo.</p>
+                                <p>Dopo anni ho capito che, se volevo anche solo avvicinarmi alla conoscenza di alcuni maestri, dovevo uscire dalla mia zona di comfort e ricominciare dalle basi che compongono il cerchio.
+Così nel 2020 mi sono rimesso la cintura bianca e presentato dai Fratelli Leteri, dove i maestri: Matteo Cazzola, Andrè Ribeiro e Sebastiano Degan
+mi hanno trasmesso la loro passione per il BJJ.</p>
+                                <p>Nel 2022 ho deciso di ricominciare il mio percorso di striking nella Yamakasi con i maestri: Roberto Vecchia e Andrea Tran, David, Pietro ed Elia.
+Oggi continuo a praticare tutte le arti marziali da me iniziate, costantemente e con determinazione, in ognuna delle quali sono agonista.</p>
+                            </div>
+                            <div class="instructor-courses">
+                                <h4>Corsi tenuti</h4>
+                                <div class="courses-list" id="courses-ermanno-mazzi">
+                                    <!-- I corsi verranno inseriti dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <!-- Logo per footer -->
+            <img src="logo.svg" class="footer-logo" alt="Logo">
+            
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/groups/34249768556" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/yamakasiverona" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/393516003684?text=Ciao!%20Vorrei%20prenotare%20una%20lezione%20di%20prova%20alla%20Yamakasi%20Fight%20Academy." target="_blank" class="social-link whatsapp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Informazioni associazione -->
+            <div class="association-info">
+                <h3 class="association-name">A.S.D. YAMAKASI FIGHT ACADEMY</h3>
+                <div class="association-details">
+                    <p><strong>P. IVA E CF:</strong> 04435780236</p>
+                    <p><strong>Email:</strong> <a href="mailto:segreteria.yamakasi@gmail.com" class="email-link">segreteria.yamakasi@gmail.com</a></p>
+                    <p><strong>Indirizzo:</strong><br>
+                    Via Cesare Beccaria 12e<br>
+                    San Martino Buon Albergo<br>
+                    37036 Verona</p>
+                </div>
+            </div>
+            
+            <!-- Pulsante Privacy Policy -->
+            <div class="privacy-link-container">
+                <a href="privacy.html" class="privacy-link-btn">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="script-pages.js"></script>
+</body>
+</html>

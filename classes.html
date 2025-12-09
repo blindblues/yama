@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamakasi Fight Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <!-- Rimuovo heroicons per evitare problemi CORS -->
+</head>
+<body>
+    <!-- Ancora all'inizio assoluto della pagina -->
+    <div id="top"></div>
+    
+    <!-- Contenuti principali del sito -->
+    <div class="main-content">
+        <!-- Logo fisso con sfera di luce -->
+        <div class="fixed-logo">
+            <!-- Sfera di luce dietro il logo -->
+            <div class="light-sphere"></div>
+            <!-- Logo -->
+            <a href="#" onclick="toggleMenu(); return false;" class="logo-link">
+                <img src="logo.svg" class="logo-small" alt="Logo">
+            </a>
+            <!-- Freccia per menu -->
+            <svg class="menu-arrow" onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+        </div>
+
+        <!-- Striscia con effetto lente d'ingrandimento -->
+        <div class="magnifying-strip" id="magnifyingStrip"></div>
+
+        <!-- Menu a cascata -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="classes.html" class="menu-item">Corsi</a>
+            <a href="about.html" class="menu-item">Chi siamo</a>
+            <a href="contacts.html" class="menu-item">Contatti</a>
+            <a href="blog.html" class="menu-item">Blog</a>
+        </div>
+
+        <!-- Sezione Corsi -->
+        <section class="classes-section">
+            <div class="classes-container">
+                <h2 class="classes-title animate-up">Le Nostre Discipline</h2>
+                <p class="classes-subtitle animate-up">Scopri tutti i corsi della Yamakasi Fight Academy</p>
+                <div class="navigation-links animate-up" style="text-align: center; margin-bottom: 4rem;">
+                    <button href="#adulti-courses" class="nav-button" id="adulti-button">Adulti</button>
+                    <button href="#minorenni-courses" class="nav-button" id="minorenni-toggle">Ragazzi</button>
+                </div>
+                
+                <div id="courses-container" class="classes-grid" style="scroll-margin-top: 100px;">
+                    <!-- TAKEMUSU AIKIDO -->
+                    <div class="class-card animate-up" data-category="adulti" id="takemusu-aikido">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img\aikido.jpg" alt="Takemusu Aikido">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">TAKEMUSU AIKIDO</h3>
+                            <p class="class-description">Arte marziale giapponese basata sull'uso della forza dell'avversario per proiettarlo e controllarlo attraverso tecniche di leva e articolazioni.</p>
+                            <div class="class-info">
+                                <span class="class-level">Tutti i livelli</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#michel-lupa" class="instructor-link" onclick="openInstructorCard('michel-lupa'); return false;">Michel</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Mercoledì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DAITO RYU AIKI JUJUTSU -->
+                    <div class="class-card animate-up" data-category="adulti">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img\jujutsu.jpg" alt="Daito Ryu Aiki Jujutsu">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">DAITO RYU AIKI JUJUTSU</h3>
+                            <p class="class-description">Antica arte marziale giapponese che si concentra sulle tecniche di controllo delle articolazioni e sul neutralizzare l'avversario con minima forza.</p>
+                            <div class="class-info">
+                                <span class="class-level">Intermedio/Avanzato</span>
+                                <span class="class-duration">90 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#pietro-vaccari" class="instructor-link" onclick="openInstructorCard('pietro-vaccari'); return false;">Pietro</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">20:30 - 22:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">20:30 - 22:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KARATE -->
+                    <div class="class-card animate-up" data-category="adulti" id="karate">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img\karate.jpg" alt="Karate">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">KARATE</h3>
+                            <p class="class-description">Arte marziale che sviluppa forza, flessibilità e disciplina attraverso tecniche di pugni, calci, parate e forme (kata).</p>
+                            <div class="class-info">
+                                <span class="class-level">Tutti i livelli</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#pietro-vaccari" class="instructor-link" onclick="openInstructorCard('pietro-vaccari'); return false;">Pietro</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">19:00 - 20:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Mercoledì</span>
+                                        <span class="schedule-time">19:00 - 20:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">19:00 - 20:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MUAY THAI -->
+                    <div class="class-card animate-up" data-category="adulti" id="muay-thai">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img\muaythai.jpg" alt="Muay Thai">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MUAY THAI</h3>
+                            <p class="class-description">Arte marziale thailandese conosciuta come "l'arte delle otto armi" che utilizza pugni, gomiti, ginocchia e calci.</p>
+                            <div class="class-info">
+                                <span class="class-level">Tutti i livelli</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#roberto-vecchia" class="instructor-link" onclick="openInstructorCard('roberto-vecchia'); return false;">Roberto</a><span class="course-separator">/</span> 
+                                <a href="about.html#andrea-tran" class="instructor-link" onclick="openInstructorCard('andrea-tran'); return false;">Andrea</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">18:30 - 19:30</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KICK BOXING – K1 -->
+                    <div class="class-card animate-up" data-category="adulti" id="kick-boxing">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img/kickboxe.jpg" alt="Kick Boxing K1">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">KICK BOXING – K1</h3>
+                            <p class="class-description">Disciplina da combattimento che combina tecniche di pugilato e calci, con regole che permettono colpi potenti e spettacolari.</p>
+                            <div class="class-info">
+                                <span class="class-level">Intermedio/Avanzato</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#roberto-vecchia" class="instructor-link" onclick="openInstructorCard('roberto-vecchia'); return false;">Roberto</a><span class="course-separator">/</span> 
+                                <a href="about.html#andrea-tran" class="instructor-link" onclick="openInstructorCard('andrea-tran'); return false;">Andrea</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">19:00 - 20:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">19:00 - 20:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WONDER WOMEN -->
+                    <div class="class-card animate-up" data-category="adulti" id="wonder-women">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image" style="background-image: url('img/wonderwomen.jpg'); background-position: 50% 25%; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">WONDER WOMEN</h3>
+                            <p class="class-description">Corso esclusivamente femminile che unisce difesa personale, preparazione fisica e crescita della fiducia in sé stesse.</p>
+                            <div class="class-info">
+                                <span class="class-level">Solo donne</span>
+                                <span class="class-duration">45 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#tatiana-rondanin" class="instructor-link" onclick="openInstructorCard('tatiana-rondanin'); return false;">Tatiana</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">18:30 - 19:15</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">18:30 - 19:15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOXE -->
+                    <div class="class-card animate-up" data-category="adulti" id="boxe">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img/boxe.jpg" alt="Boxe">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">BOXE</h3>
+                            <p class="class-description">Nobile arte del pugilato che migliora coordinazione, resistenza e forza attraverso tecniche di attacco e difesa con i pugni.</p>
+                            <div class="class-info">
+                                <span class="class-level">Tutti i livelli</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#david-scardigno" class="instructor-link" onclick="openInstructorCard('david-scardigno'); return false;">David</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Mercoledì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">20:00 - 21:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KOMBAT TRAINING -->
+                    <div class="class-card animate-up" data-category="adulti" id="kombat-training">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img/kombattraining.jpg" alt="Kombat Training">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">KOMBAT TRAINING</h3>
+                            <p class="class-description">Allenamento funzionale che combina tecniche di diverse arti marziali per una preparazione fisica completa ed efficace.</p>
+                            <div class="class-info">
+                                <span class="class-level">Intermedio</span>
+                                <span class="class-duration">75 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#tatiana-rondanin" class="instructor-link" onclick="openInstructorCard('tatiana-rondanin'); return false;">Tatiana</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Mercoledì</span>
+                                        <span class="schedule-time">18:30 - 19:45</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">18:30 - 19:45</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BRAZILIAN JIUJITSU -->
+                    <div class="class-card animate-up" data-category="adulti" id="brazilian-jiujitsu">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img/brazilianjiujitsu.jpg" alt="Brazilian JiuJitsu">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">BRAZILIAN JIUJITSU</h3>
+                            <p class="class-description">Arte marziale focalizzata sulla lotta a terra, leve articolari e strangolamenti, ideale per sconfiggere avversari più grandi.</p>
+                            <div class="class-info">
+                                <span class="class-level">Tutti i livelli</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#matteo-cazzola" class="instructor-link" onclick="openInstructorCard('matteo-cazzola'); return false;">Matteo</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">21:00 - 22:00</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">21:00 - 22:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MMA -->
+                    <div class="class-card animate-up" data-category="adulti" id="mma">
+                        <input type="hidden" class="course-category" value="adulti">
+                        <div class="class-image">
+                            <img src="img/mma.jpg" alt="MMA">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MMA</h3>
+                            <p class="class-description">Mixed Martial Arts - disciplina completa che integra tecniche di striking e grappling per il combattimento totale.</p>
+                            <div class="class-info">
+                                <span class="class-level">Avanzato</span>
+                                <span class="class-duration">90 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#ermanno-mazzi" class="instructor-link" onclick="openInstructorCard('ermanno-mazzi'); return false;">Ermanno</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">21:00 - 22:30</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">21:00 - 22:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSI RAGAZZI -->
+                    <!-- BABY KARATE -->
+                    <div class="class-card animate-up" data-category="ragazzi">
+                        <input type="hidden" class="course-category" value="ragazzi">
+                        <div class="class-image">
+                            <img src="img/martialkidz.png">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MARTIAL KIDZ</h3>
+                            <p class="class-description">Questo indirizzo nasce con lo scopo di creare una base completa a 360 gradi dalla la crescita psicomotoria alla crescita sociale del bambino/a nel modo completo possibile</p>
+                            <div class="class-info">
+                                <span class="class-level">4 anni</span>
+                                <span class="class-duration">45 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#giulia-nussdorfer" class="instructor-link" onclick="openInstructorCard('giulia-nussdorfer'); return false;">Giulia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">17:30 - 18:15</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">17:30 - 18:15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JUNIOR AIKIDO -->
+                    <div class="class-card animate-up" data-category="ragazzi">
+                        <input type="hidden" class="course-category" value="ragazzi">
+                        <div class="class-image">
+                            <img src="img/muaythaijunior.png">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MUAY THAI JUNIOR</h3>
+                            <p class="class-description">Corso base per bambini dalla prima alla quinta elementare. In questo corso vengono insegnati i principi base e le tecniche iniziali della Muay Thai</p>
+                            <div class="class-info">
+                                <span class="class-level">6 anni</span>
+                                <span class="class-duration">50 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#tatiana-rondanin" class="instructor-link" onclick="openInstructorCard('tatiana-rondanin'); return false;">Tatiana</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">17:30 - 18:20</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Venerdì</span>
+                                        <span class="schedule-time">17:30 - 18:20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MUAY THAI RAGAZZI -->
+                    <div class="class-card animate-up" data-category="ragazzi">
+                        <input type="hidden" class="course-category" value="ragazzi">
+                        <div class="class-image">
+                            <img src="img/muaythaiyoung.png" alt="Muay Thai Ragazzi">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MUAY THAI YOUNG</h3>
+                            <p class="class-description">Il corso è adatto ai ragazzi che frequentano la Scuola Secondaria di primo grado</p>
+                            <div class="class-info">
+                                <span class="class-level">11-13 anni</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#tatiana-rondanin" class="instructor-link" onclick="openInstructorCard('tatiana-rondanin'); return false;">Tatiana</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">18:30 - 19:30</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">18:30 - 19:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOXE JUNIOR -->
+                    <div class="class-card animate-up" data-category="ragazzi">
+                        <input type="hidden" class="course-category" value="ragazzi">
+                        <div class="class-image">
+                            <img src="img/bjjjunior.png" alt="Boxe Junior">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">BJJ JUNIOR</h3>
+                            <p class="class-description">Adatto per i bimbi dalla prima elementare</p>
+                            <div class="class-info">
+                                <span class="class-level">6 anni</span>
+                                <span class="class-duration">50 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#matteo-cazzola" class="instructor-link" onclick="openInstructorCard('matteo-cazzola'); return false;">Matteo</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Lunedì</span>
+                                        <span class="schedule-time">17:30 - 18:20</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">17:30 - 18:20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KARATE KIDS -->
+                    <div class="class-card animate-up" data-category="ragazzi">
+                        <input type="hidden" class="course-category" value="ragazzi">
+                        <div class="class-image">
+                            <img src="img/muaythaiteen.png" alt="Karate Kids">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">MUAY THAI TEEN</h3>
+                            <p class="class-description">Adatto per ragazzi dalle prima alla terza  superiore</p>
+                            <div class="class-info">
+                                <span class="class-level">14-16 anni</span>
+                                <span class="class-duration">60 min</span>
+                            </div>
+                            <div class="class-instructor">
+                                <span class="instructor-label">Insegnanti:</span>
+                                <a href="about.html#tatiana-rondanin" class="instructor-link" onclick="openInstructorCard('tatiana-rondanin'); return false;">Tatiana</a><span class="course-separator">/</span> 
+                                <a href="about.html#elia-peraro" class="instructor-link" onclick="openInstructorCard('elia-peraro'); return false;">Elia</a>
+                            </div>
+                            <div class="class-schedule">
+                                <h4 class="schedule-title">Giorni e Orari</h4>
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Martedì</span>
+                                        <span class="schedule-time">19:45 - 20:45</span>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <span class="schedule-day">Giovedì</span>
+                                        <span class="schedule-time">19:45 - 20:45</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <!-- Logo per footer -->
+            <img src="logo.svg" class="footer-logo" alt="Logo">
+            
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/groups/34249768556" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/yamakasiverona" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                    </svg>
+                </a>
+                <a href="#" onclick="openWhatsAppChat(); return false;" class="social-link whatsapp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Informazioni associazione -->
+            <div class="association-info">
+                <h3 class="association-name">A.S.D. YAMAKASI FIGHT ACADEMY</h3>
+                <div class="association-details">
+                    <p><strong>P. IVA E CF:</strong> 04435780236</p>
+                    <p><strong>Email:</strong> <a href="mailto:segreteria.yamakasi@gmail.com" class="email-link">segreteria.yamakasi@gmail.com</a></p>
+                    <p><strong>Indirizzo:</strong><br>
+                    Via Cesare Beccaria 12e<br>
+                    San Martino Buon Albergo<br>
+                    37036 Verona</p>
+                </div>
+            </div>
+            
+            <!-- Pulsante Privacy Policy -->
+            <div class="privacy-link-container">
+                <a href="privacy.html" class="privacy-link-btn">Privacy Policy</a>
+            </div>
+            </footer>
+    </div>
+
+    <!-- Modal per prenotazione lezione di prova -->
+    <div class="booking-modal" id="booking-modal" style="display: none;">
+        <div class="booking-dialog">
+            <div class="booking-header">
+                <h3 class="booking-title">Prenota una lezione di prova</h3>
+                <button class="booking-close" onclick="closeBookingModal()">&times;</button>
+            </div>
+            
+            <div class="booking-body">
+                <div class="booking-info">
+                    <h4>Corso selezionato:</h4>
+                    <div class="booking-course-selector" onclick="toggleCourseSelector()">
+                        <div class="course-selector-content">
+                            <div class="course-selector-text">
+                                <p id="booking-course-name" class="booking-course-name">Clicca per selezionare un corso</p>
+                                <p id="booking-schedule" class="booking-schedule">Scegli giorno e orario</p>
+                            </div>
+                            <span class="course-selector-arrow">▼</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu a tendina per selezione corsi -->
+                    <div class="course-selector-dropdown" id="course-selector-dropdown" style="display: none;">
+                        <!-- Barra di ricerca -->
+                        <div class="course-search-container">
+                            <input type="text" id="course-search-input" class="course-search-input" placeholder="Cerca disciplina..." onkeyup="filterDisciplines()">
+                        </div>
+                        
+                        <!-- Lista discipline -->
+                        <div id="disciplines-list-container">
+                            <!-- Sarà popolato dinamicamente da JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="booking-form" id="trial-lesson-form">
+                    <div class="form-group">
+                        <label for="booking-name" class="form-label">Nome e Cognome</label>
+                        <input type="text" id="booking-name" name="booking-name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-email" class="form-label">Email</label>
+                        <input type="email" id="booking-email" name="booking-email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-phone" class="form-label">Telefono</label>
+                        <input type="tel" id="booking-phone" name="booking-phone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-age" class="form-label">Età</label>
+                        <input type="number" id="booking-age" name="booking-age" class="form-input" min="4" max="99" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-message" class="form-label">Messaggio opzionale</label>
+                        <textarea id="booking-message" name="booking-message" class="form-textarea" rows="4" placeholder="Esperienza precedente, domande, etc."></textarea>
+                    </div>
+                    
+                    <div class="booking-buttons">
+                        <button type="submit" class="btn btn-submit">Prenota Lezione di Prova</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="script-pages.js"></script>
+</body>
+</html>

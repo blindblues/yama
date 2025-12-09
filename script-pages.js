@@ -784,16 +784,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (coursesData) {
                     const courses = JSON.parse(coursesData);
                     
-                    // Crea una lista verticale di corsi
+                    // Mostra solo il primo corso
                     classInfoElement.innerHTML = '';
-                    courses.forEach(course => {
-                        const courseDiv = document.createElement('div');
-                        courseDiv.style.marginBottom = '2px';
-                        courseDiv.textContent = course.toUpperCase();
-                        classInfoElement.appendChild(courseDiv);
-                    });
+                    const firstCourse = courses[0];
+                    const courseDiv = document.createElement('div');
+                    courseDiv.textContent = firstCourse.toUpperCase();
+                    classInfoElement.appendChild(courseDiv);
                     
-                    console.log(`Resi non cliccabili i corsi per ${instructorId} (lista verticale)`);
+                    console.log(`Resi non cliccabili i corsi per ${instructorId} - mostrato solo il primo corso`);
                 }
             }
         };

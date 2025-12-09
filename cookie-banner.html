@@ -1,0 +1,81 @@
+<!-- Cookie Banner GDPR -->
+<div id="cookieBanner" class="cookie-banner" style="display: none;">
+    <div class="cookie-banner-content">
+        <div class="cookie-banner-text">
+            <h3>Li vuoi i cookies?</h3>
+            <p>
+                Questo sito utilizza cookie tecnici per garantire il corretto funzionamento e migliorare la tua esperienza di navigazione. 
+                Utilizziamo anche cookie di terze parti per analisi e profilazione. 
+                Cliccando su "Accetta tutti" acconsenti all'uso di tutti i cookie. 
+                Puoi gestire le tue preferenze o rifiutare i cookie non necessari.
+            </p>
+            <div class="cookie-links">
+                <a href="privacy.html#cookie-policy" class="cookie-link">Leggi la Cookie Policy</a>
+                <a href="privacy.html" class="cookie-link">Privacy Policy</a>
+            </div>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="acceptAll" class="cookie-btn cookie-btn-accept">Accetta tutti</button>
+            <button id="acceptNecessary" class="cookie-btn cookie-btn-necessary">Solo necessari</button>
+            <button id="customize" class="cookie-btn cookie-btn-customize">Personalizza</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookieModal" class="cookie-modal" style="display: none;">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h2>Impostazioni Cookie</h2>
+            <button id="closeModal" class="cookie-modal-close">&times;</button>
+        </div>
+        
+        <div class="cookie-modal-body">
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div class="cookie-category-info">
+                        <h4>Cookie Tecnici (Necessari)</h4>
+                        <p>Essenziali per il funzionamento del sito. Non possono essere disabilitati.</p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="necessaryCookies" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div class="cookie-category-info">
+                        <h4>Cookie Analitici</h4>
+                        <p>Ci aiutano a capire come gli utenti utilizzano il sito, raccogliendo dati anonimi.</p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="analyticsCookies">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div class="cookie-category-info">
+                        <h4>Cookie di Profilazione</h4>
+                        <p>Utilizzati per personalizzare contenuti e pubblicità in base ai tuoi interessi.</p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="profilingCookies">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cookie-modal-footer">
+            <button id="savePreferences" class="cookie-btn cookie-btn-accept">Salva preferenze</button>
+            <button id="acceptAllFromModal" class="cookie-btn cookie-btn-accept">Accetta tutti</button>
+            <button id="rejectAllFromModal" class="cookie-btn cookie-btn-necessary">Rifiuta tutti</button>
+        </div>
+    </div>
+</div>

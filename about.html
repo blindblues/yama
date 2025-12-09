@@ -29,6 +29,15 @@
             display: block !important;
         }
         
+        /* Mostra solo la prima disciplina quando la scheda è chiusa */
+        body.about-page .class-card:not(.expanded) .class-level {
+            display: block !important;
+        }
+        
+        body.about-page .class-card:not(.expanded) .class-level:not(:first-child) {
+            display: none !important;
+        }
+        
         body.about-page .classes-section {
             display: block !important;
         }
@@ -45,7 +54,7 @@
         
         /* Linea di separazione per schede aperte */
         body.about-page .class-card.expanded .class-title {
-            border-bottom: 1px solid rgba(239, 239, 239, 0.2);
+            border-bottom: 1px solid rgba(250, 181, 59, 0.2);
             padding-bottom: 15px;
             margin-bottom: 15px;
         }
@@ -123,12 +132,6 @@ Oggi dopo tanti anni nulla è cambiato, il bello di queste discipline è che si 
                                     <li>per un totale di 28 anni di esperienza!</li>
                                 </ul>
                             </div>
-                            <div class="instructor-courses">
-                                <h4>Corsi tenuti</h4>
-                                <div class="courses-list" id="courses-roberto-vecchia">
-                                    <!-- I corsi verranno inseriti dinamicamente -->
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -151,12 +154,6 @@ Oggi dopo tanti anni nulla è cambiato, il bello di queste discipline è che si 
                                 <p>Dopo anni di striking, la mancanza di una conoscenza marziale a terra era evidente, preso dalla curiosità ho iniziato a frequentare le lezioni sempre più assiduamente e ogni volta con una sete di conoscenza più ampia.</p>
                                 <p>La cosa più speciale del BJJ è che ti entra nello spirito a piccoli passi e non ti molla più! Attualmente sono cintura Azzurra in questa disciplina</p>
                                 </ul>
-                            </div>
-                            <div class="instructor-courses">
-                                <h4>Corsi tenuti</h4>
-                                <div class="courses-list" id="courses-andrea-tran">
-                                    <!-- I corsi verranno inseriti dinamicamente -->
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,12 +358,6 @@ Così nel 2020 mi sono rimesso la cintura bianca e presentato dai Fratelli Leter
 mi hanno trasmesso la loro passione per il BJJ.</p>
                                 <p>Nel 2022 ho deciso di ricominciare il mio percorso di striking nella Yamakasi con i maestri: Roberto Vecchia e Andrea Tran, David, Pietro ed Elia.
 Oggi continuo a praticare tutte le arti marziali da me iniziate, costantemente e con determinazione, in ognuna delle quali sono agonista.</p>
-                            </div>
-                            <div class="instructor-courses">
-                                <h4>Corsi tenuti</h4>
-                                <div class="courses-list" id="courses-ermanno-mazzi">
-                                    <!-- I corsi verranno inseriti dinamicamente -->
-                                </div>
                             </div>
                         </div>
                     </div>

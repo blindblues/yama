@@ -2157,7 +2157,6 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
 
 .discipline-item:hover {
     background: rgba(250, 181, 59, 0.1);
-    transform: translateX(5px);
 }
 
 .discipline-item.hidden {

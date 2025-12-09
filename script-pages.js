@@ -729,16 +729,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Salva i corsi come data attribute per usarli quando si apre la scheda
                 classInfoElement.setAttribute('data-courses', JSON.stringify(courses));
                 
-                // Mostra i corsi come lista verticale quando la scheda è chiusa
+                // Mostra solo il primo corso quando la scheda è chiusa
                 classInfoElement.innerHTML = '';
-                courses.forEach(course => {
-                    const courseDiv = document.createElement('div');
-                    courseDiv.style.marginBottom = '2px';
-                    courseDiv.textContent = course.toUpperCase();
-                    classInfoElement.appendChild(courseDiv);
-                });
+                const firstCourse = courses[0];
+                const courseDiv = document.createElement('div');
+                courseDiv.textContent = firstCourse.toUpperCase();
+                classInfoElement.appendChild(courseDiv);
                 
-                console.log(`Aggiornato class-level per ${instructorId} con ${courses.length} corsi (lista verticale)`);
+                console.log(`Aggiornato class-level per ${instructorId} - mostrato solo il primo corso di ${courses.length} totali`);
             }
         }
         

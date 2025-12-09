@@ -205,33 +205,6 @@ body {
 /* Responsive per Yamabw Section */
 @media (max-width: 768px) {
     .yamabw-section {
-        background-position: 45% center;
-    }
-    
-    .yamabw-title {
-        font-size: 5rem;
-        letter-spacing: 0.1em;
-    }
-    
-    .yamabw-subtitle {
-        font-size: 1.5rem;
-        letter-spacing: 0.05em;
-    }
-    
-    /* Responsive per scrolling text su tablet */
-    .yamabw-section .scrolling-text {
-        bottom: 60px !important;
-        height: 100px;
-    }
-    
-    .yamabw-section .scrolling-text-secondary {
-        bottom: 50px !important;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .yamabw-section {
         background-position: 45% bottom;
         background-size: cover;
         background-attachment: scroll;
@@ -248,7 +221,7 @@ body {
         letter-spacing: 0.02em;
     }
     
-    /* Responsive per scrolling text su mobile - spaziatura originale con padding per interfaccia Chrome */
+    /* Responsive per scrolling text su mobile - posizione unica per tutti i dispositivi */
     .yamabw-section .scrolling-text {
         bottom: 25px !important;
         height: 100px;

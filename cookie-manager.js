@@ -22,6 +22,70 @@ class CookieManager {
     }
 
     /**
+     * Setup del sistema di cookie
+     */
+    setupCookieSystem() {
+        // Inietta il HTML del banner e del modal
+        this.injectCookieHTML();
+        
+        // Aspetta che l'animazione iniziale sia completata prima di mostrare il banner
+        this.waitForAnimationAndShowBanner();
+        
+        // Setup degli event listeners
+        this.setupEventListeners();
+    }
+
+    /**
+     * Aspetta che l'animazione iniziale sia completata prima di mostrare il banner
+     */
+    waitForAnimationAndShowBanner() {
+        const animationContainer = document.querySelector('.animation-container');
+        const mainContent = document.querySelector('.main-content');
+        
+        // Se l'animazione non esiste o è già completata, mostra il banner
+        if (!animationContainer || animationContainer.style.display === 'none') {
+            this.showBannerIfNecessary();
+            return;
+        }
+        
+        // Crea un MutationObserver per monitorare quando l'animazione viene nascosta
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    // Controlla se l'animazione è stata nascosta o il display è none
+                    if (animationContainer.style.display === 'none' || 
+                        animationContainer.style.opacity === '0') {
+                        this.showBannerIfNecessary();
+                        observer.disconnect();
+                    }
+                }
+            });
+        });
+        
+        // Inizia ad osservare l'animation container
+        observer.observe(animationContainer, { attributes: true, attributeFilter: ['style'] });
+        
+        // Fallback: se dopo 5 secondi non è successo nulla, mostra comunque il banner
+        setTimeout(() => {
+            this.showBannerIfNecessary();
+            observer.disconnect();
+        }, 5000);
+    }
+
+    /**
+     * Mostra il banner solo se non c'è consenso
+     */
+    showBannerIfNecessary() {
+        // Se non c'è consenso, mostra il banner
+        if (!this.consent) {
+            this.showCookieBanner();
+        } else {
+            // Applica le preferenze esistenti
+            this.applyPreferences();
+        }
+    }
+
+    /**
      * Carica il consenso salvato nei cookie
      */
     loadConsent() {
@@ -61,25 +125,6 @@ class CookieManager {
             profiling: false,
             timestamp: null
         };
-    }
-
-    /**
-     * Setup del sistema di cookie
-     */
-    setupCookieSystem() {
-        // Inietta il HTML del banner e del modal
-        this.injectCookieHTML();
-        
-        // Se non c'è consenso, mostra il banner
-        if (!this.consent) {
-            this.showCookieBanner();
-        } else {
-            // Applica le preferenze esistenti
-            this.applyPreferences();
-        }
-
-        // Setup degli event listeners
-        this.setupEventListeners();
     }
 
     /**

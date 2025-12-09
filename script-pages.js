@@ -340,6 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isExpanded) {
             // Chiudi la card
             card.classList.remove('expanded');
+            
+            // Rendi i corsi non cliccabili
+            const instructorId = card.id;
+            if (window.makeCoursesNonClickable) {
+                window.makeCoursesNonClickable(instructorId);
+            }
+            
             // Rimuovi il pulsante di chiusura
             const closeBtn = card.querySelector('.close-btn');
             if (closeBtn) {
@@ -404,6 +411,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Aggiungi la classe expanded dopo aver spostato la card
             card.classList.add('expanded');
+            
+            // Rendi i corsi cliccabili
+            const instructorId = card.id;
+            if (window.makeCoursesClickable) {
+                window.makeCoursesClickable(instructorId);
+            }
             
             // Aggiungi pulsante di chiusura
             const closeBtn = document.createElement('button');
@@ -654,6 +667,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Controlla se c'è un insegnante da aprire quando si carica la pagina
     if (window.location.pathname.includes('about.html')) {
         openInstructorFromSession();
+        
+        // Assicura che il contenuto sia visibile sulla pagina about.html
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+        }
     }
     
     // Controlla se c'è un corso da aprire quando si carica la pagina classes.html
@@ -673,8 +692,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'TAKEMUSU AIKIDO': ['michel-lupa'],
             'DAITO RYU AIKI JUJUTSU': ['pietro-vaccari'],
             'KARATE': ['pietro-vaccari'],
-            'MUAY THAI': ['roberto-vecchia', 'andrea-tran', 'elia-peraro'],
-            'KICK BOXING – K1': ['roberto-vecchia', 'andrea-tran', 'elia-peraro'],
+            'MUAY THAI': ['roberto-vecchia', 'andrea-tran', 'elia-peraro', 'pietro-corradi'],
+            'KICK BOXING – K1': ['roberto-vecchia', 'andrea-tran', 'elia-peraro', 'pietro-corradi'],
             'WONDER WOMEN': ['tatiana-rondanin'],
             'BOXE': ['david-scardigno'],
             'KOMBAT TRAINING': ['tatiana-rondanin'],
@@ -702,49 +721,84 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Popola le schede degli insegnanti
         for (const [instructorId, courses] of Object.entries(instructorCourses)) {
-            // Aggiorna il sottotitolo nella scheda insegnante
+            // Popola il class-level con i corsi (testo normale quando chiuso, link quando aperto)
             const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
-            console.log(`Elaborando insegnante: ${instructorId}, sottotitolo trovato:`, !!classInfoElement);
+            console.log(`Elaborando insegnante: ${instructorId}, class-level trovato:`, !!classInfoElement);
             
             if (classInfoElement && courses.length > 0) {
-                // Svuota il contenuto attuale
-                classInfoElement.innerHTML = '';
+                // Salva i corsi come data attribute per usarli quando si apre la scheda
+                classInfoElement.setAttribute('data-courses', JSON.stringify(courses));
                 
-                // Aggiungi ogni corso come link cliccabile
-                courses.forEach((course, index) => {
-                    const courseLink = document.createElement('a');
-                    courseLink.href = 'classes.html';
-                    courseLink.className = 'course-link-in-header';
-                    // Converti il testo: tutto maiuscolo
-                    let formattedCourse = course.toUpperCase();
-                    courseLink.textContent = formattedCourse;
-                    courseLink.onclick = (e) => {
-                        e.preventDefault();
-                        // Salva il corso da aprire e reindirizza
-                        sessionStorage.setItem('courseToOpen', course);
-                        window.location.href = 'classes.html';
-                    };
-                    
-                    classInfoElement.appendChild(courseLink);
-                    
-                    // Aggiungi separatore se non è l'ultimo corso
-                    if (index < courses.length - 1) {
-                        const separator = document.createElement('span');
-                        separator.textContent = ' • ';
-                        separator.className = 'course-separator';
-                        classInfoElement.appendChild(separator);
-                    }
+                // Mostra i corsi come lista verticale quando la scheda è chiusa
+                classInfoElement.innerHTML = '';
+                courses.forEach(course => {
+                    const courseDiv = document.createElement('div');
+                    courseDiv.style.marginBottom = '2px';
+                    courseDiv.textContent = course.toUpperCase();
+                    classInfoElement.appendChild(courseDiv);
                 });
                 
-                console.log(`Aggiornato sottotitolo per ${instructorId} con ${courses.length} corsi`);
-            }
-            
-            // Rimuovi le vecchie sezioni corsi se esistono
-            const coursesContainer = document.getElementById(`courses-${instructorId}`);
-            if (coursesContainer) {
-                coursesContainer.remove();
+                console.log(`Aggiornato class-level per ${instructorId} con ${courses.length} corsi (lista verticale)`);
             }
         }
+        
+        // Funzione per rendere i corsi cliccabili quando si apre una scheda
+        window.makeCoursesClickable = function(instructorId) {
+            const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
+            if (classInfoElement) {
+                const coursesData = classInfoElement.getAttribute('data-courses');
+                if (coursesData) {
+                    const courses = JSON.parse(coursesData);
+                    
+                    // Svuota il contenuto
+                    classInfoElement.innerHTML = '';
+                    
+                    // Aggiungi ogni corso come link cliccabile in lista verticale
+                    courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.style.marginBottom = '2px';
+                        
+                        const courseLink = document.createElement('a');
+                        courseLink.href = 'classes.html';
+                        courseLink.className = 'course-link-in-header';
+                        let formattedCourse = course.toUpperCase();
+                        courseLink.textContent = formattedCourse;
+                        courseLink.onclick = (e) => {
+                            e.preventDefault();
+                            sessionStorage.setItem('courseToOpen', course);
+                            window.location.href = 'classes.html';
+                        };
+                        
+                        courseDiv.appendChild(courseLink);
+                        classInfoElement.appendChild(courseDiv);
+                    });
+                    
+                    console.log(`Resi cliccabili i corsi per ${instructorId} (lista verticale)`);
+                }
+            }
+        };
+        
+        // Funzione per rendere i corsi non cliccabili quando si chiude una scheda
+        window.makeCoursesNonClickable = function(instructorId) {
+            const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
+            if (classInfoElement) {
+                const coursesData = classInfoElement.getAttribute('data-courses');
+                if (coursesData) {
+                    const courses = JSON.parse(coursesData);
+                    
+                    // Crea una lista verticale di corsi
+                    classInfoElement.innerHTML = '';
+                    courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.style.marginBottom = '2px';
+                        courseDiv.textContent = course.toUpperCase();
+                        classInfoElement.appendChild(courseDiv);
+                    });
+                    
+                    console.log(`Resi non cliccabili i corsi per ${instructorId} (lista verticale)`);
+                }
+            }
+        };
         
         console.log('Popolamento corsi insegnanti completato');
     }

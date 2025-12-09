@@ -10,6 +10,54 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <!-- Rimuovo heroicons per evitare problemi CORS -->
+    <style>
+        /* Forza visibilità sulla pagina about */
+        body.about-page .main-content {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        body.about-page .class-level {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            color: #efefef !important;
+            font-size: 0.9rem !important;
+        }
+        
+        body.about-page .class-info {
+            display: block !important;
+        }
+        
+        body.about-page .classes-section {
+            display: block !important;
+        }
+        
+        body.about-page .classes-grid {
+            display: grid !important;
+        }
+        
+        body.about-page .class-card {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Linea di separazione per schede aperte */
+        body.about-page .class-card.expanded .class-title {
+            border-bottom: 1px solid rgba(239, 239, 239, 0.2);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        
+        body.about-page .class-card.expanded .class-info {
+            margin-bottom: 20px;
+        }
+        
+        body.about-page .class-card.expanded .maestro-biography {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body class="about-page">
     <!-- Ancora all'inizio assoluto della pagina -->
@@ -58,7 +106,7 @@
                         <div class="class-content">
                             <h3 class="class-title">Roberto Vecchia</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                                <span class="class-level">MUAY THAI</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -91,7 +139,7 @@ Oggi dopo tanti anni nulla è cambiato, il bello di queste discipline è che si 
                         <div class="class-content">
                             <h3 class="class-title">Andrea Tran</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                                <span class="class-level">MUAY THAI</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -154,7 +202,7 @@ Oltre ai titoli e alle medaglie che ho conquistato le cose che più contano sono
                         <div class="class-content">
                             <h3 class="class-title">Pietro Vaccari</h3>
                             <div class="class-info">
-                                <span class="class-level">DAITO RYU AIKIJUJUTSU</span>
+                                <span class="class-level">DAITO RYU AIKI JUJUTSU</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -204,7 +252,7 @@ Il motto della nostra scuola è JITA KYOEI, ciò che ho ricevuto ridono, il che 
                         <div class="class-content">
                             <h3 class="class-title">Tatiana Rondanin</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI JUNIOR - MUAY THAI YOUNG</span>
+                                <span class="class-level">MUAY THAI JUNIOR</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -225,7 +273,7 @@ Diventata mamma ho deciso di alimentare questa passione insegnando ai piccoli at
                         <div class="class-content">
                             <h3 class="class-title">Giulia Nussdorfer</h3>
                             <div class="class-info">
-                                <span class="class-level">MARTIAL KIDZ & MARTIAL BABY</span>
+                                <span class="class-level">MARTIAL KIDZ</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -243,7 +291,7 @@ Diventata mamma ho deciso di alimentare questa passione insegnando ai piccoli at
                         <div class="class-content">
                             <h3 class="class-title">Corradi Pietro</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                                <span class="class-level">MUAY THAI</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -263,7 +311,7 @@ Dopo due anni di pratica ho deciso di cambiare disciplina, cercandone una comple
                         <div class="class-content">
                             <h3 class="class-title">Elia Peraro</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI TEEN & MMA</span>
+                                <span class="class-level">MUAY THAI TEEN</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -282,7 +330,7 @@ Attualmente, pratico Muay Thai e Kickboxing, due discipline che mi hanno incanta
                         <div class="class-content">
                             <h3 class="class-title">David Scardigno</h3>
                             <div class="class-info">
-                                <span class="class-level">MUAY THAI & KICKBOXING</span>
+                                <span class="class-level">BOXE</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -302,7 +350,7 @@ Attualmente, pratico Muay Thai e Kickboxing, due discipline che mi hanno incanta
                         <div class="class-content">
                             <h3 class="class-title">Ermanno Mazzi</h3>
                             <div class="class-info">
-                                <span class="class-level">BRAZILIAN JIU JITSU TEEN & MMA</span>
+                                <span class="class-level">BRAZILIAN JIU JITSU TEEN</span>
                             </div>
                             <div class="maestro-biography">
                                 <h4>Biografia</h4>
@@ -372,5 +420,41 @@ Oggi continuo a praticare tutte le arti marziali da me iniziate, costantemente e
 
     <script src="script.js"></script>
     <script src="script-pages.js"></script>
+    <script>
+        // Forza visibilità immediata del contenuto
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.style.opacity = '1';
+                mainContent.style.visibility = 'visible';
+            }
+            
+            // Forza visibilità delle discipline
+            const classLevels = document.querySelectorAll('.class-level');
+            classLevels.forEach(function(element) {
+                element.style.display = 'block';
+                element.style.opacity = '1';
+                element.style.visibility = 'visible';
+                element.style.color = '#efefef';
+            });
+        });
+        
+        // Backup: esegui anche subito se il DOM è già caricato
+        if (document.readyState !== 'loading') {
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.style.opacity = '1';
+                mainContent.style.visibility = 'visible';
+            }
+            
+            const classLevels = document.querySelectorAll('.class-level');
+            classLevels.forEach(function(element) {
+                element.style.display = 'block';
+                element.style.opacity = '1';
+                element.style.visibility = 'visible';
+                element.style.color = '#efefef';
+            });
+        }
+    </script>
 </body>
 </html>

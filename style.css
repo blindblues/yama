@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1730,37 +1730,19 @@ body {
     line-height: 1.6;
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+    max-height: 4.8em;
 }
 
 .class-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(250, 181, 59, 0.1);
-
-    .class-title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #fab53b;
-    }
-
-    .class-description {
-        color: #b0b0b0;
-        line-height: 1.6;
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .class-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(250, 181, 59, 0.1);
-    }
-/* ... */
+    display: none;
 }
 
 /* Posizione immagine Wonder Women */
@@ -1826,6 +1808,9 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
 
 .class-card.expanded .class-content {
     padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .class-card.expanded .class-description {
@@ -1833,11 +1818,46 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
     line-height: 1.8;
     max-height: none;
     overflow: visible;
+    margin-bottom: 0;
+    display: inline;
+    color: #b0b0b0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.class-card.expanded .class-description + .class-instructor {
+    display: inline;
+    margin-left: 0.5rem;
+    margin-top: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
 }
 
 .class-card.expanded .class-info {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    display: none;
+}
+
+.class-card.expanded .class-instructor {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
 }
 
 .class-card.expanded .class-level,
@@ -1872,7 +1892,6 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
 /* Sezione giorni e orari */
 .class-schedule {
     display: none;
-    margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(250, 181, 59, 0.2);
 }
@@ -2461,28 +2480,39 @@ background: rgba(250, 181, 59, 0.05);
 
 /* Stili per la sezione insegnanti nelle schede corsi */
 .class-instructor {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(250, 181, 59, 0.1);
-    display: flex;
-    align-items: center;
+    display: none;
+}
+
+.class-card.expanded .class-instructor {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
 }
 
 .instructor-label {
     color: #b0b0b0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 500;
+    line-height: 1.8;
 }
 
 .instructor-link {
     color: #fab53b;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: all 0.3s ease;
     border-bottom: 1px solid transparent;
+    line-height: 1.8;
 }
 
 .instructor-link:hover {
@@ -2772,27 +2802,45 @@ background: rgba(250, 181, 59, 0.05);
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
-}
 
-/* Responsive per card espanse */
-.class-card.expanded {
-width: 95%;
-max-height: 90vh;
-border-radius: 20px;
-}
+    /* Riduci la larghezza minima delle class-card per mostrarne almeno due su mobile */
+    .classes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
 
-.class-card.expanded .class-content {
-padding: 2rem;
-}
+    .class-card {
+        width: 100%;
+    }
 
-.class-card.expanded .class-description {
-font-size: 1.1rem;
-}
+    .class-image {
+        height: 120px;
+    }
 
-.class-card.expanded .close-btn {
-width: 35px;
-height: 35px;
-font-size: 1.2rem;
+    .class-content {
+        padding: 1rem;
+    }
+
+    .class-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .class-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+
+    .class-info {
+        padding-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .class-level,
+    .class-duration {
+        font-size: 0.75rem;
+    }
 }
 
 @keyframes rotateIn {

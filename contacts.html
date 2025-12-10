@@ -6,11 +6,14 @@
     <title>Yamakasi Fight Academy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <!-- Cookie Manager -->
     <script src="cookie-manager.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="emailjs-config.js"></script>
     <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js" type="module"></script>
 </head>
 <body>
@@ -60,7 +63,7 @@
                     </button>
                 </div>
                 
-                <form class="contact-form animate-up" action="mailto:info@yamakasi.it" method="post" enctype="text/plain">
+                <form class="contact-form animate-up" id="contact-form" onsubmit="event.preventDefault(); sendContactEmail(event); return false;">
                     <div class="form-group">
                         <label for="name" class="form-label">Nome</label>
                         <input type="text" id="name" name="name" class="form-input" required>
@@ -121,7 +124,7 @@
                         </div>
                     </div>
                     
-                    <form class="booking-form" id="trial-lesson-form">
+                    <form class="booking-form" id="trial-lesson-form" onsubmit="event.preventDefault(); sendTrialLessonEmail(event); return false;">
                         <div class="form-group">
                             <label for="booking-name" class="form-label">Nome e Cognome</label>
                             <input type="text" id="booking-name" name="booking-name" class="form-input" required>
@@ -201,6 +204,5 @@
 
     <script src="script.js"></script>
     <script src="script-pages.js"></script>
-    <script src="menu-click-outside.js"></script>
 </body>
 </html>

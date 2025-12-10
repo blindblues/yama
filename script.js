@@ -43,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         timeoutIds = [];
         
         // Esegui l'animazione accelerata
-        logoSvg.style.transition = 'transform 0.3s cubic-bezier(0.20, 0.55, 0.27, 1.55), opacity 0.2s ease';
-        logoSvg.style.opacity = '1';
+        if (logoSvg) {
+            logoSvg.style.transition = 'transform 0.3s cubic-bezier(0.20, 0.55, 0.27, 1.55), opacity 0.2s ease';
+            logoSvg.style.opacity = '1';
+        }
         logoSvg.style.transform = 'rotateY(0deg)';
         
         const timeout1 = setTimeout(() => {
@@ -150,10 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Aggiungi questa riga PRIMA di chiamare startAnimation()
-    animationContainer.addEventListener('click', (e) => {
-        e.preventDefault();
-        skipAnimation();
-    });
+    if (animationContainer) {
+        animationContainer.addEventListener('click', (e) => {
+            e.preventDefault();
+            skipAnimation();
+        });
+    }
 
     // Sequenza di animazioni
     const startAnimation = () => {

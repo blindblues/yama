@@ -1394,51 +1394,6 @@ function initializeBookingModal() {
                 bookingDialog.style.overflowY = 'auto';
             }
         }, 10);
-        
-        // Gestisci il submit del form
-        const bookingForm = document.getElementById('trial-lesson-form');
-        if (bookingForm) {
-            bookingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Raccogli i dati del form
-                const formData = new FormData(this);
-                const name = formData.get('booking-name');
-                const email = formData.get('booking-email');
-                const phone = formData.get('booking-phone');
-                const age = formData.get('booking-age');
-                const message = formData.get('booking-message');
-                
-                // Validazione base
-                if (!name || !email || !phone || !age) {
-                    alert('Per favore compila tutti i campi obbligatori.');
-                    return;
-                }
-                
-                // Crea il corpo dell'email
-                const emailBody = `RICHIESTA LEZIONE DI PROVA\n\n` +
-                    `Corso: ${courseName}\n` +
-                    `Giorno e Orario: ${day} - ${time}\n\n` +
-                    `Dati personali:\n` +
-                    `Nome: ${name}\n` +
-                    `Email: ${email}\n` +
-                    `Telefono: ${phone}\n` +
-                    `Età: ${age}\n\n` +
-                    `Messaggio: ${message || 'Nessun messaggio aggiuntivo'}`;
-                
-                // Crea il link mailto
-                const mailtoLink = `mailto:segreteria.yamakasi@gmail.com?subject=Richiesta lezione di prova - ${courseName}&body=${encodeURIComponent(emailBody)}`;
-                
-                // Apri il client email
-                window.location.href = mailtoLink;
-                
-                // Chiudi la modal dopo l'invio
-                setTimeout(() => {
-                    closeBookingModal();
-                }, 1000);
-            });
-        }
     }
 }
 
@@ -1463,58 +1418,8 @@ function closeTrialModal() {
 window.openTrialModal = openTrialModal;
 window.closeTrialModal = closeTrialModal;
 
-// Gestione form di prenotazione
+// Inizializza i gestori per il modal quando il DOM è caricato
 document.addEventListener('DOMContentLoaded', function() {
-    const trialForm = document.getElementById('trialForm');
-    if (trialForm) {
-        trialForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Raccogli i dati del form
-            const formData = new FormData(trialForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const course = formData.get('course');
-            const message = formData.get('message');
-            
-            // Mappa dei corsi per il nome completo
-            const courseNames = {
-                'mma': 'MMA',
-                'boxing': 'Boxe',
-                'bjj': 'Brazilian Jiu-Jitsu',
-                'muay-thai': 'Muay Thai',
-                'karate': 'Karate',
-                'aikido': 'Aikido'
-            };
-            
-            const courseName = courseNames[course] || course;
-            
-            // Crea il corpo dell'email
-            const emailBody = `RICHIESTA LEZIONE DI PROVA GRATUITA\n\n` +
-                `Corso di interesse: ${courseName}\n` +
-                `L'utente ha diritto a 2 lezioni di prova gratuite\n\n` +
-                `Dati personali:\n` +
-                `Nome: ${name}\n` +
-                `Email: ${email}\n` +
-                `Telefono: ${phone}\n\n` +
-                `Messaggio: ${message || 'Nessun messaggio aggiuntivo'}`;
-            
-            // Crea il link mailto
-            const mailtoLink = `mailto:segreteria.yamakasi@gmail.com?subject=Richiesta lezione di prova gratuita - ${courseName}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Apri il client email
-            window.location.href = mailtoLink;
-            
-            // Chiudi la modal dopo l'invio
-            setTimeout(() => {
-                closeTrialModal();
-                // Resetta il form
-                trialForm.reset();
-            }, 1000);
-        });
-    }
-    
     // Chiudi la modal cliccando sullo sfondo
     const trialModal = document.getElementById('trialModal');
     if (trialModal) {

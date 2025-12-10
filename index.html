@@ -11,7 +11,9 @@
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <!-- Cookie Manager -->
     <script src="cookie-manager.js"></script>
-    <!-- Rimuovo heroicons per evitare problemi CORS -->
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="emailjs-config.js"></script>
 </head>
 <body>
     <!-- Ancora all'inizio assoluto della pagina -->
@@ -593,7 +595,7 @@
                     </div>
                 </div>
                 
-                <form class="booking-form" id="trial-lesson-form">
+                <form class="booking-form animate-up" id="trial-lesson-form" onsubmit="event.preventDefault(); sendTrialLessonEmail(event); return false;">
                     <div class="form-group">
                         <label for="booking-name" class="form-label">Nome e Cognome</label>
                         <input type="text" id="booking-name" name="booking-name" class="form-input" required>

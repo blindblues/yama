@@ -760,82 +760,40 @@ document.addEventListener('DOMContentLoaded', () => {
         
         console.log('Mappa insegnanti-corsi:', instructorCourses);
         
-        // Popola le schede degli insegnanti
-        for (const [instructorId, courses] of Object.entries(instructorCourses)) {
-            // Popola il class-level con i corsi (testo normale quando chiuso, link quando aperto)
-            const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
-            console.log(`Elaborando insegnante: ${instructorId}, class-level trovato:`, !!classInfoElement);
-            
-            if (classInfoElement && courses.length > 0) {
-                // Salva i corsi come data attribute per usarli quando si apre la scheda
-                classInfoElement.setAttribute('data-courses', JSON.stringify(courses));
-                
-                // Mostra solo il primo corso quando la scheda è chiusa
-                classInfoElement.innerHTML = '';
-                const firstCourse = courses[0];
-                const courseDiv = document.createElement('div');
-                courseDiv.textContent = firstCourse.toUpperCase();
-                classInfoElement.appendChild(courseDiv);
-                
-                console.log(`Aggiornato class-level per ${instructorId} - mostrato solo il primo corso di ${courses.length} totali`);
-            }
-        }
         
         // Funzione per rendere i corsi cliccabili quando si apre una scheda
         window.makeCoursesClickable = function(instructorId) {
-            const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
+            const classInfoElement = document.querySelector(`#${instructorId} .class-info`);
             if (classInfoElement) {
-                const coursesData = classInfoElement.getAttribute('data-courses');
-                if (coursesData) {
-                    const courses = JSON.parse(coursesData);
+                const coursesData = instructorCourses[instructorId];
+                
+                // Svuota il contenuto
+                classInfoElement.innerHTML = '';
+                
+                // Aggiungi ogni corso come link cliccabile in lista verticale
+                coursesData.forEach(course => {
+                    const courseDiv = document.createElement('div');
+                    courseDiv.style.marginBottom = '2px';
                     
-                    // Svuota il contenuto
-                    classInfoElement.innerHTML = '';
+                    const courseLink = document.createElement('a');
+                    courseLink.href = 'classes.html';
+                    courseLink.className = 'course-link-in-header';
+                    let formattedCourse = course.toUpperCase();
+                    courseLink.textContent = formattedCourse;
+                    courseLink.onclick = (e) => {
+                        e.preventDefault();
+                        sessionStorage.setItem('courseToOpen', course);
+                        window.location.href = 'classes.html';
+                    };
                     
-                    // Aggiungi ogni corso come link cliccabile in lista verticale
-                    courses.forEach(course => {
-                        const courseDiv = document.createElement('div');
-                        courseDiv.style.marginBottom = '2px';
-                        
-                        const courseLink = document.createElement('a');
-                        courseLink.href = 'classes.html';
-                        courseLink.className = 'course-link-in-header';
-                        let formattedCourse = course.toUpperCase();
-                        courseLink.textContent = formattedCourse;
-                        courseLink.onclick = (e) => {
-                            e.preventDefault();
-                            sessionStorage.setItem('courseToOpen', course);
-                            window.location.href = 'classes.html';
-                        };
-                        
-                        courseDiv.appendChild(courseLink);
-                        classInfoElement.appendChild(courseDiv);
-                    });
-                    
-                    console.log(`Resi cliccabili i corsi per ${instructorId} (lista verticale)`);
-                }
+                    courseDiv.appendChild(courseLink);
+                    classInfoElement.appendChild(courseDiv);
+                });
+                
+                console.log(`Resi cliccabili i corsi per ${instructorId} (lista verticale)`);
             }
         };
         
-        // Funzione per rendere i corsi non cliccabili quando si chiude una scheda
-        window.makeCoursesNonClickable = function(instructorId) {
-            const classInfoElement = document.querySelector(`#${instructorId} .class-info .class-level`);
-            if (classInfoElement) {
-                const coursesData = classInfoElement.getAttribute('data-courses');
-                if (coursesData) {
-                    const courses = JSON.parse(coursesData);
-                    
-                    // Mostra solo il primo corso
-                    classInfoElement.innerHTML = '';
-                    const firstCourse = courses[0];
-                    const courseDiv = document.createElement('div');
-                    courseDiv.textContent = firstCourse.toUpperCase();
-                    classInfoElement.appendChild(courseDiv);
-                    
-                    console.log(`Resi non cliccabili i corsi per ${instructorId} - mostrato solo il primo corso`);
-                }
-            }
-        };
         
         console.log('Popolamento corsi insegnanti completato');
     }

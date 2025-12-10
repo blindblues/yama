@@ -1149,11 +1149,7 @@ body {
     color: #fab53b;
 }
 
-.about-page .class-level {
-    color: #efefef;
-}
-
-.about-page .class-card.expanded .class-level {
+.about-page .class-description {
     color: #efefef;
 }
 
@@ -1217,9 +1213,6 @@ body {
     100% {
         transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1);
         opacity: 1;
-        
-        
-        
     }
 }
 
@@ -1871,11 +1864,6 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
     font-size: 1.2rem;
 }
 
-.class-card.expanded .class-level,
-.class-card.expanded .class-duration {
-    color: #ffffff !important;
-}
-
 .class-card.expanded .close-btn {
     position: absolute;
     top: 1rem;
@@ -2175,34 +2163,32 @@ img.wonderwomen-img[src="img/wonderwomen.jpg"] {
 }
 
 .discipline-name {
-color: #fab53b;
-font-weight: 600;
-font-size: 1.1rem;
+    color: #fab53b;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .discipline-arrow {
-color: #b0b0b0;
-width: 20px;
-height: 20px;
-transition: all 0.3s ease;
-flex-shrink: 0;
+    color: #b0b0b0;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .discipline-item:hover .discipline-arrow {
-color: #fab53b;
-transform: translateY(2px);
+    color: #fab53b;
+    transform: translateY(2px);
 }
 
 .discipline-item.expanded .discipline-arrow {
-color: #fab53b;
-transform: rotate(180deg);
+    color: #fab53b;
+    transform: rotate(180deg);
 }
 
 .discipline-schedule {
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.3s ease;
-background: rgba(250, 181, 59, 0.05);
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.3s ease;
     background: rgba(250, 181, 59, 0.05);
 }
@@ -2852,10 +2838,6 @@ background: rgba(250, 181, 59, 0.05);
         font-size: 0.8rem;
     }
 
-    .class-level,
-    .class-duration {
-        font-size: 0.75rem;
-    }
 }
 
 @keyframes rotateIn {

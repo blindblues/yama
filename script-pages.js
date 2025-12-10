@@ -67,7 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMenu() {
         // Chiudi tutte le schede aperte quando si apre il menu
         if (!dropdownMenu.classList.contains('active')) {
-            document.querySelectorAll('.class-card.expanded').forEach(openCard => {
+            const expandedCards = document.querySelectorAll('.class-card.expanded');
+            
+            // Rimuovi prima tutte le classi expanded e gestisci i placeholder
+            expandedCards.forEach(openCard => {
                 const closeBtn = openCard.querySelector('.close-btn');
                 if (closeBtn) {
                     closeBtn.remove();
@@ -78,8 +81,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 openCard.classList.remove('expanded');
                 document.body.style.overflow = '';
-                restoreOriginalPosition(openCard);
+                
+                // Rimuovi il placeholder se esiste
+                if (openCard._placeholder) {
+                    openCard._placeholder.remove();
+                    openCard._placeholder = null;
+                }
             });
+            
+            // Poi riposiziona tutte le card con un piccolo delay per permettere il reflow
+            setTimeout(() => {
+                expandedCards.forEach(openCard => {
+                    restoreOriginalPosition(openCard);
+                });
+            }, 50);
         }
         
         if (dropdownMenu.classList.contains('active')) {
@@ -296,34 +311,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalPositions = new Map();
     
     function saveOriginalPositions() {
-        document.querySelectorAll('.classes-grid .class-card').forEach((card, index) => {
-            if (!originalPositions.has(card)) {
-                originalPositions.set(card, index);
-            }
+        document.querySelectorAll('.classes-grid').forEach(grid => {
+            grid.querySelectorAll('.class-card').forEach((card, index) => {
+                if (!originalPositions.has(card)) {
+                    originalPositions.set(card, index);
+                    // Salva anche il grid originale
+                    card._originalGrid = grid;
+                    console.log(`Salvata posizione per card ${card.id || 'senza-id'}: index=${index}, grid=${grid.className}`);
+                }
+            });
         });
     }
     
     // Funzione per riposizionare una card nella sua posizione originale
     function restoreOriginalPosition(card) {
-        const classesGrids = document.querySelectorAll('.classes-grid');
+        // Trova il grid originale di questa card
+        const originalGrid = card._originalGrid;
+        console.log(`Riposizionando card ${card.id || 'senza-id'}, originalGrid:`, originalGrid);
         
-        classesGrids.forEach(classesGrid => {
-            if (classesGrid && !classesGrid.contains(card)) {
-                const originalIndex = originalPositions.get(card);
-                if (originalIndex !== undefined) {
-                    const currentCards = Array.from(classesGrid.querySelectorAll('.class-card'));
-                    // Inserisci la card nella sua posizione originale
-                    if (originalIndex >= currentCards.length) {
-                        classesGrid.appendChild(card);
-                    } else {
-                        classesGrid.insertBefore(card, currentCards[originalIndex]);
-                    }
-                } else {
-                    // Fallback: aggiungi alla fine
-                    classesGrid.appendChild(card);
+        if (!originalGrid) {
+            // Fallback: cerca il primo grid che non contiene già questa card
+            const classesGrids = document.querySelectorAll('.classes-grid');
+            for (const grid of classesGrids) {
+                if (!grid.contains(card)) {
+                    card._originalGrid = grid;
+                    console.log(`Fallback: assegnato grid ${grid.className} alla card ${card.id || 'senza-id'}`);
+                    break;
                 }
             }
-        });
+        }
+        
+        if (card._originalGrid && !card._originalGrid.contains(card)) {
+            const originalIndex = originalPositions.get(card);
+            console.log(`Index originale per card ${card.id || 'senza-id'}: ${originalIndex}`);
+            
+            if (originalIndex !== undefined) {
+                const currentCards = Array.from(card._originalGrid.querySelectorAll('.class-card'));
+                console.log(`Card correnti nel grid: ${currentCards.length}`);
+                
+                // Inserisci la card nella sua posizione originale
+                if (originalIndex >= currentCards.length) {
+                    card._originalGrid.appendChild(card);
+                    console.log(`Aggiunta alla fine del grid`);
+                } else {
+                    card._originalGrid.insertBefore(card, currentCards[originalIndex]);
+                    console.log(`Inserita alla posizione ${originalIndex}`);
+                }
+            } else {
+                // Fallback: aggiungi alla fine
+                card._originalGrid.appendChild(card);
+                console.log(`Fallback: aggiunta alla fine del grid`);
+            }
+        } else {
+            console.log(`Card ${card.id || 'senza-id'} già nel suo grid o nessun grid trovato`);
+        }
     }
 
     // Esegui la pulizia all'avvio
@@ -2120,47 +2161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Controlla posizione iniziale
     handleLogoScroll();
     
-    // Funzione per il menu a cascata
-    function toggleMenu() {
-        // Chiudi tutte le schede aperte quando si apre il menu
-        if (!dropdownMenu.classList.contains('active')) {
-            document.querySelectorAll('.class-card.expanded').forEach(openCard => {
-                const closeBtn = openCard.querySelector('.close-btn');
-                if (closeBtn) {
-                    closeBtn.remove();
-                }
-                const overlay = document.querySelector('.class-overlay');
-                if (overlay) {
-                    overlay.classList.remove('active');
-                }
-                openCard.classList.remove('expanded');
-                document.body.style.overflow = '';
-                restoreOriginalPosition(openCard);
-            });
-        }
-        
-        if (dropdownMenu.classList.contains('active')) {
-            dropdownMenu.classList.remove('active');
-            // Rimuovi classe menu-open e ripristina lo stato scroll
-            if (fixedLogo) {
-                fixedLogo.classList.remove('menu-open');
-            }
-            handleLogoScroll();
-        } else {
-            dropdownMenu.classList.add('active');
-            // Reset del logo alla posizione normale quando si apre il menu
-            if (fixedLogo) {
-                fixedLogo.classList.remove('scrolled');
-                fixedLogo.classList.add('menu-open');
-            }
-            // Nascondi la striscia quando si apre il menu
-            if (magnifyingStrip) {
-                magnifyingStrip.classList.remove('active');
-            }
-        }
-    }
-    
-    window.toggleMenu = toggleMenu;
+    // La funzione toggleMenu è già definita sopra e resa globale
     
     // Gestione hash URL per aprire automaticamente la scheda della disciplina
     function handleHashFromURL() {

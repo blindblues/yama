@@ -268,62 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Il filtro CSS già applicato colorerà il logo correttamente
         });
     }
-    
-    // Funzione per toggle del menu a cascata
-    window.toggleMenu = function() {
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        
-        if (dropdownMenu) {
-            dropdownMenu.classList.toggle('active');
-        }
-    };
-    
-    // Chiudi il menu quando si clicca sullo sfondo o su una voce del menu
-    document.addEventListener('click', (e) => {
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        const menuArrow = document.querySelector('.menu-arrow');
-        const logoLink = document.querySelector('.logo-link');
-        const fixedLogo = document.querySelector('.fixed-logo');
-        
-        if (dropdownMenu && dropdownMenu.classList.contains('active') && 
-            !menuArrow.contains(e.target) && 
-            !logoLink.contains(e.target) &&
-            !fixedLogo.contains(e.target)) {
-            dropdownMenu.classList.remove('active');
-        }
-    });
-});
-    
-// Assicuriamoci che il logo nel footer sia colorato correttamente
-const footerLogo = document.querySelector('.footer-logo');
-if (footerLogo) {
-    footerLogo.addEventListener('load', () => {
-        // Il filtro CSS già applicato colorerà il logo correttamente
-    });
-}
-    
-// Funzione per toggle del menu a cascata
-window.toggleMenu = function() {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    
-    if (dropdownMenu) {
-        dropdownMenu.classList.toggle('active');
-    }
-};
-    
-// Chiudi il menu quando si clicca sullo sfondo o su una voce del menu
-document.addEventListener('click', (e) => {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    const menuArrow = document.querySelector('.menu-arrow');
-    const logoLink = document.querySelector('.logo-link');
-    const fixedLogo = document.querySelector('.fixed-logo');
-    
-    if (dropdownMenu && dropdownMenu.classList.contains('active') && 
-        !menuArrow.contains(e.target) && 
-        !logoLink.contains(e.target) &&
-        !fixedLogo.contains(e.target)) {
-        dropdownMenu.classList.remove('active');
-    }
 });
 
 // Effetto Parallasse Header con fluttuazione

@@ -137,7 +137,7 @@ class CookieManager {
                 <div class="cookie-banner-wrapper">
                     <div class="cookie-banner-content">
                         <div class="cookie-banner-text">
-                            <h3>Li vuoi i Cookies?</h3>
+                            <h3>Li vuoi i Cookie?</h3>
                             <p>
                                 Questo sito utilizza cookie tecnici per garantire il corretto funzionamento e migliorare la tua esperienza di navigazione. 
                                 Utilizziamo anche cookie di terze parti per analisi e profilazione. 

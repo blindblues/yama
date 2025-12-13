@@ -53,15 +53,10 @@ body {
 .logo-area {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.console-logo {
-    width: 60px;
-    height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .console-title {
@@ -70,6 +65,61 @@ body {
     color: #fab53b;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    flex: 1;
+    text-align: center;
+}
+
+.view-site-btn {
+    margin-left: 1rem;
+    background: linear-gradient(135deg, #fab53b, #ff8c00);
+    border: 3px solid #fab53b;
+    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
+    color: #0a0a0a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(250, 181, 59, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 30px rgba(250, 181, 59, 0.6);
+    }
+}
+
+.view-site-btn:hover {
+    background: linear-gradient(135deg, #ff8c00, #fab53b);
+    transform: translateY(-3px) scale(1.05);
+    border-color: #ff8c00;
+}
+
+.view-site-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.view-site-btn svg {
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.view-site-btn:hover svg {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.console-logo {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 /* Main content */
@@ -78,21 +128,114 @@ body {
     padding: 2rem;
 }
 
+/* Tab navigation */
+.tab-navigation {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.tab-btn {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(250, 181, 59, 0.2);
+    border-bottom: none;
+    border-radius: 0;
+    padding: 1.2rem 2rem;
+    color: rgba(239, 239, 239, 0.7);
+    cursor: pointer;
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(250, 181, 59, 0.1);
+    position: relative;
+    flex: 1;
+}
+
+.tab-btn:last-child {
+    border-right: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.tab-btn:first-child {
+    border-radius: 20px 0 0 0;
+}
+
+.tab-btn:last-child {
+    border-radius: 0 20px 0 0;
+}
+
+.tab-btn:hover {
+    background: rgba(40, 40, 40, 0.95);
+    color: rgba(250, 181, 59, 0.8);
+    transform: translateY(-2px);
+    border-color: rgba(250, 181, 59, 0.4);
+    box-shadow: 0 -2px 8px rgba(250, 181, 59, 0.1);
+}
+
+.tab-btn.active {
+    background: rgba(250, 181, 59, 0.15);
+    border-color: rgba(250, 181, 59, 0.5);
+    color: #fab53b;
+    transform: translateY(-3px);
+    box-shadow: 0 -4px 12px rgba(250, 181, 59, 0.2);
+    border-bottom: 2px solid rgba(250, 181, 59, 0.3);
+    margin-bottom: -2px;
+}
+
 .console-content {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(20, 20, 20, 0.6);
-    border: 1px solid rgba(250, 181, 59, 0.2);
-    border-radius: 20px;
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(250, 181, 59, 0.3);
+    border-top: 2px solid rgba(250, 181, 59, 0.4);
+    border-radius: 0 0 20px 20px;
     padding: 3rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     min-height: 400px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.console-content.active {
+    display: flex;
+}
+
+.console-content:not(.active) {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
+}
+
+.console-content:not(.active):not(:first-child) {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(20, 20, 20, 0.4);
+    border: 2px dashed rgba(250, 181, 59, 0.3);
+    color: rgba(250, 181, 59, 0.5);
+    font-size: 1.2rem;
+    text-align: center;
 }
 
-.course-manager {
+.console-content:not(.active):not(:first-child):before {
+    content: "Pagina vuota - Clicca sulla scheda corrispondente per navigare";
+    font-family: 'Funnel Display', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.course-manager, .instructor-manager {
     width: 100%;
 }
 
@@ -107,9 +250,21 @@ body {
 
 .course-form-section, .courses-list-section {
     margin-bottom: 3rem;
+    transition: all 0.3s ease;
 }
 
-.course-form-section h3, .courses-list-section h3 {
+.course-form-section.edit-mode {
+    border: 3px solid #fab53b !important;
+    border-radius: 20px !important;
+    background: rgba(250, 181, 59, 0.1) !important;
+    box-shadow: 0 0 30px rgba(250, 181, 59, 0.4) !important;
+    animation: pulseEdit 2s ease-in-out !important;
+    transform: scale(1.02);
+    position: relative;
+    z-index: 10;
+}
+
+.course-form-section h3, .courses-list-section h3, .instructor-form-section h3, .instructors-list-section h3 {
     color: #fab53b;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -193,6 +348,15 @@ body {
 .time-end::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.day-select::-webkit-calendar-picker-indicator:hover,
+.time-start::-webkit-calendar-picker-indicator:hover,
+.time-end::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+    filter: invert(1) brightness(1.2);
 }
 
 .day-select::-moz-calendar-picker-indicator,
@@ -200,6 +364,60 @@ body {
 .time-end::-moz-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.day-select::-moz-calendar-picker-indicator:hover,
+.time-start::-moz-calendar-picker-indicator:hover,
+.time-end::-moz-calendar-picker-indicator:hover {
+    opacity: 1;
+    filter: invert(1) brightness(1.2);
+}
+
+.time-start, .time-end {
+    position: relative;
+    cursor: pointer;
+}
+
+.time-start:focus, .time-end:focus {
+    outline: none;
+    border-color: #fab53b;
+    background: rgba(40, 40, 40, 0.9);
+    box-shadow: 0 0 0 2px rgba(250, 181, 59, 0.2);
+    transform: translateY(-1px);
+}
+
+.time-start, .time-end {
+    transition: all 0.3s ease;
+}
+
+.time-start:hover, .time-end:hover {
+    border-color: rgba(250, 181, 59, 0.5);
+    background: rgba(35, 35, 35, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    .time-start::-webkit-calendar-picker-indicator,
+    .time-end::-webkit-calendar-picker-indicator {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23fab53b'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E") no-repeat center;
+        filter: none;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+    
+    .time-start::-webkit-calendar-picker-indicator:hover,
+    .time-end::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
 
 .remove-schedule {
@@ -277,8 +495,8 @@ body {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
     margin-top: 1rem;
 }
 
@@ -286,7 +504,7 @@ body {
     background: rgba(30, 30, 30, 0.8);
     border: 1px solid rgba(250, 181, 59, 0.3);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1rem;
     transition: all 0.3s ease;
 }
 
@@ -298,14 +516,14 @@ body {
 
 .course-card h4 {
     color: #fab53b;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
 }
 
 .course-card p {
     color: #ccc;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 1rem;
     line-height: 1.4;
 }
@@ -314,20 +532,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #999;
 }
 
 .course-category {
     color: #fab53b;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.course-actions {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
 
 .edit-btn, .delete-btn {
     padding: 0.4rem 0.8rem;
@@ -490,9 +703,223 @@ body {
     border-color: #fab53b;
 }
 
+/* Stili per la selezione delle discipline */
+.discipline-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.discipline-dropdown {
+    position: relative;
+}
+
+.discipline-dropdown-header {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(250, 181, 59, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: #efefef;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.discipline-dropdown-header:hover {
+    border-color: #fab53b;
+    background: rgba(40, 40, 40, 0.9);
+}
+
+.discipline-dropdown-header.active {
+    border-color: #fab53b;
+    background: rgba(40, 40, 40, 0.9);
+    box-shadow: 0 0 0 2px rgba(250, 181, 59, 0.2);
+}
+
+.discipline-dropdown-arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.discipline-dropdown-header.active .discipline-dropdown-arrow {
+transform: rotate(180deg);
+}
+
+.discipline-dropdown-content {
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background: rgba(30, 30, 30, 0.95);
+border: 1px solid rgba(250, 181, 59, 0.3);
+border-radius: 8px;
+margin-top: 0.5rem;
+max-height: 250px;
+overflow-y: auto;
+z-index: 1000;
+display: none;
+backdrop-filter: blur(10px);
+}
+
+.discipline-dropdown-content.show {
+display: block;
+}
+
+.discipline-search-container {
+padding: 0.8rem;
+border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.discipline-search {
+background: rgba(40, 40, 40, 0.8);
+border: 1px solid rgba(250, 181, 59, 0.3);
+border-radius: 6px;
+padding: 0.6rem 0.8rem;
+color: #efefef;
+font-family: 'Funnel Display', sans-serif;
+font-size: 0.9rem;
+transition: all 0.3s ease;
+width: 100%;
+box-sizing: border-box;
+}
+
+.discipline-search:focus {
+outline: none;
+border-color: #fab53b;
+background: rgba(50, 50, 50, 0.9);
+box-shadow: 0 0 0 2px rgba(250, 181, 59, 0.2);
+}
+
+.discipline-search::placeholder {
+color: rgba(239, 239, 239, 0.5);
+font-style: italic;
+}
+
+.discipline-header {
+padding: 0.8rem 1rem;
+background: rgba(250, 181, 59, 0.1);
+color: #fab53b;
+font-size: 0.8rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+text-align: center;
+}
+
+.discipline-category {
+margin-bottom: 0.5rem;
+}
+
+.discipline-category-header {
+padding: 0.8rem 1rem;
+font-size: 0.8rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+text-align: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.discipline-category-header.adult {
+background: rgba(250, 181, 59, 0.1);
+color: #fab53b;
+border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.discipline-category-header.youth {
+background: rgba(59, 181, 250, 0.1);
+color: #3bb5fa;
+border-bottom: 1px solid rgba(59, 181, 250, 0.2);
+}
+
+.discipline-category-header:hover {
+opacity: 0.8;
+}
+
+.category-arrow {
+font-size: 0.7rem;
+transition: transform 0.3s ease;
+}
+
+.discipline-category-content {
+max-height: 200px;
+overflow-y: auto;
+display: block;
+}
+
+/* Nascondi scrollbar per discipline category content */
+.discipline-category-content::-webkit-scrollbar {
+display: none;
+}
+
+.discipline-category-content {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.discipline-options {
+max-height: none;
+overflow: visible;
+}
+
+.discipline-option {
+padding: 0.8rem 1rem;
+cursor: pointer;
+transition: background-color 0.2s ease;
+color: #efefef;
+font-size: 0.9rem;
+border-bottom: 1px solid rgba(250, 181, 59, 0.1);
+}
+
+.discipline-option:last-child {
+border-bottom: none;
+}
+
+.discipline-option:hover {
+background: rgba(250, 181, 59, 0.1);
+color: #fab53b;
+}
+
+.discipline-no-results {
+padding: 1rem;
+color: rgba(239, 239, 239, 0.5);
+font-style: italic;
+text-align: center;
+font-size: 0.8rem;
+}
+
+/* Scrollbar personalizzata per discipline dropdown */
+.discipline-dropdown-content::-webkit-scrollbar {
+width: 6px;
+}
+
+.discipline-dropdown-content::-webkit-scrollbar-track {
+background: rgba(20, 20, 20, 0.3);
+}
+
+.discipline-dropdown-content::-webkit-scrollbar-thumb {
+background: rgba(250, 181, 59, 0.3);
+border-radius: 3px;
+}
+
+.discipline-dropdown-content::-webkit-scrollbar-thumb:hover {
+background: rgba(250, 181, 59, 0.5);
+}
+
 .image-preview {
     margin-top: 1rem;
     border-radius: 8px;
+overflow: hidden;
+max-width: 100%;
+display: none;
     overflow: hidden;
     max-width: 100%;
     display: none;
@@ -500,7 +927,7 @@ body {
 
 .image-preview img {
     width: 100%;
-    max-height: 200px;
+    max-height: 150px;
     object-fit: cover;
     border: 1px solid rgba(250, 181, 59, 0.3);
     border-radius: 8px;
@@ -508,7 +935,7 @@ body {
 
 .form-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 300px;
     gap: 3rem;
     align-items: start;
 }
@@ -518,14 +945,27 @@ body {
 }
 
 .preview-area {
-    min-width: 0;
-    position: sticky;
-    top: 2rem;
+    width: 300px;
+    height: 600px;
+    max-height: 600px;
+    position: fixed;
+    top: 12rem;
+    right: 2rem;
+    overflow: hidden;
+    z-index: 10;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(250, 181, 59, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    flex: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .preview-area h4 {
     color: #fab53b;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     text-align: center;
     text-transform: uppercase;
@@ -537,11 +977,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .preview-section h5 {
     color: #efefef;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
     text-align: center;
     text-transform: uppercase;
@@ -553,15 +994,20 @@ body {
     background: rgba(30, 30, 30, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(250, 181, 59, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s, box-shadow 0.4s;
     position: relative;
-    width: 350px;
-    max-width: 350px;
+    width: 250px;
+    max-width: 250px;
+    height: auto;
+    max-height: 400px;
     cursor: pointer;
+    flex: none;
+    display: flex;
+    flex-direction: column;
 }
 
 #coursePreview:hover {
@@ -582,7 +1028,7 @@ body {
 
 #coursePreview .class-image {
     width: 100%;
-    height: 200px;
+    height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -600,12 +1046,12 @@ body {
 }
 
 #coursePreview .class-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 #coursePreview .class-title {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     color: #fab53b;
 }
@@ -613,7 +1059,7 @@ body {
 #coursePreview .class-description {
     color: #b0b0b0;
     line-height: 1.6;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 1rem;
     min-height: 3rem;
     display: -webkit-box;
@@ -637,13 +1083,13 @@ body {
 
 #coursePreview .instructor-label {
     color: #b0b0b0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 #coursePreview .instructor-names {
     color: #efefef;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 #coursePreview .class-schedule {
@@ -654,7 +1100,7 @@ body {
 
 #coursePreview .schedule-title {
     color: #fab53b;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -675,13 +1121,13 @@ body {
 
 #coursePreview .schedule-day {
     color: #b0b0b0;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 500;
 }
 
 #coursePreview .schedule-time {
     color: #efefef;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 #coursePreview.expanded {
@@ -691,26 +1137,26 @@ body {
     right: auto !important;
     bottom: auto !important;
     transform: translate(-50%, -50%) !important;
-    width: 90%;
-    max-width: 800px;
-    max-height: 85vh;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
     z-index: 1000;
     cursor: default;
 }
 
 #coursePreview.expanded .class-image {
-    height: 300px;
+    height: 200px;
 }
 
 #coursePreview.expanded .class-content {
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
 #coursePreview.expanded .class-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.8;
     max-height: none;
     overflow: visible;
@@ -740,13 +1186,13 @@ body {
 
 #coursePreview.expanded .instructor-label {
     color: #b0b0b0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 #coursePreview.expanded .instructor-names {
     color: #efefef;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #coursePreview.expanded .class-schedule {
@@ -757,7 +1203,7 @@ body {
 
 #coursePreview.expanded .schedule-title {
     color: #fab53b;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -778,13 +1224,13 @@ body {
 
 #coursePreview.expanded .schedule-day {
     color: #b0b0b0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 #coursePreview.expanded .schedule-time {
     color: #efefef;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 
 #coursePreview .close-btn {
@@ -811,6 +1257,246 @@ body {
 }
 
 #coursePreview .close-btn:hover {
+background: #fab53b;
+transform: scale(1.1);
+}
+
+#instructorPreview {
+background: rgba(30, 30, 30, 0.6);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border-radius: 20px;
+overflow: hidden;
+border: 1px solid rgba(250, 181, 59, 0.1);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+transition: transform 0.4s, box-shadow 0.4s;
+position: relative;
+width: 250px;
+max-width: 250px;
+height: auto;
+max-height: 400px;
+cursor: pointer;
+flex: none;
+display: flex;
+flex-direction: column;
+}
+
+#instructorPreview:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 40px rgba(250, 181, 59, 0.1);
+}
+
+#instructorPreview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(250, 181, 59, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+#instructorPreview .class-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+#instructorPreview .class-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    background: rgba(30, 30, 30, 0.5);
+}
+
+#instructorPreview:hover .class-image img {
+    transform: scale(1.05);
+}
+
+#instructorPreview .class-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#instructorPreview .class-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fab53b;
+}
+
+#instructorPreview .maestro-biography {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+}
+
+#instructorPreview .maestro-biography h4 {
+    color: #fab53b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    text-transform: none;
+}
+
+#instructorPreview .maestro-biography p {
+    color: #b0b0b0;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-transform: none;
+}
+
+#instructorPreview .maestro-biography ul {
+    margin: 0;
+    padding-left: 1rem;
+    list-style: none;
+}
+
+#instructorPreview .maestro-biography li {
+    color: #b0b0b0;
+    font-size: 0.7rem;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+
+#instructorPreview .maestro-biography li:before {
+    content: "•";
+    color: #fab53b;
+    position: absolute;
+    left: -1rem;
+}
+
+#instructorPreview .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(250, 181, 59, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#instructorPreview .close-btn:hover {
+    background: #fab53b;
+    transform: scale(1.1);
+}
+
+#instructorPreview.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    z-index: 1000;
+    cursor: default;
+}
+
+#instructorPreview.expanded .class-image {
+    height: 250px;
+}
+
+#instructorPreview.expanded .class-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#instructorPreview.expanded .class-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#instructorPreview.expanded .class-info {
+    margin-bottom: 1.5rem;
+}
+
+#instructorPreview.expanded .class-level {
+    font-size: 1.1rem;
+}
+
+#instructorPreview.expanded .maestro-biography {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+#instructorPreview.expanded .maestro-biography h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#instructorPreview.expanded .maestro-biography p {
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+#instructorPreview.expanded .maestro-biography ul {
+    margin-bottom: 1.5rem;
+}
+
+#instructorPreview.expanded .maestro-biography li {
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+#instructorPreview.expanded .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(250, 181, 59, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#instructorPreview.expanded .close-btn:hover {
     background: #fab53b;
     transform: scale(1.1);
 }
@@ -818,7 +1504,7 @@ body {
 .instructor-link {
     color: #fab53b;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
@@ -869,10 +1555,23 @@ body {
         position: static;
     }
     
-    #coursePreview {
+    #coursePreview, #instructorPreview {
         transform: scale(1);
-        max-width: 400px;
+        max-width: 300px;
         margin: 0 auto;
+    }
+    
+    #instructorPreview, #instructorPreview.expanded {
+        width: 250px !important;
+        max-width: 250px !important;
+        height: 400px !important;
+        max-height: 400px !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
     }
 }
 
@@ -885,6 +1584,12 @@ body {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+    
+    .view-site-btn {
+        margin-left: 0;
+        margin-top: 1rem;
+        align-self: center;
     }
     
     .console-logo {
@@ -933,7 +1638,7 @@ body {
 .course-actions {
     display: flex;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid rgba(250, 181, 59, 0.1);
 }
@@ -1001,18 +1706,83 @@ body {
     }
 }
 
+@keyframes pulseEdit {
+    0% {
+        box-shadow: 0 0 20px rgba(250, 181, 59, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(250, 181, 59, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(250, 181, 59, 0.2);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 181, 59, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(250, 181, 59, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 181, 59, 0.4);
+    }
+}
+
 /* Stili per le class card - copiati dal style.css principale */
 .class-card {
     background: rgba(30, 30, 30, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(250, 181, 59, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s, box-shadow 0.4s;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Fix per le carte insegnanti nel grid per prevenire deformazione */
+.instructors-grid .class-card {
+    height: auto;
+    max-height: 400px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+}
+
+/* Fix per il contenuto delle carte insegnanti per gestire overflow */
+.instructors-grid .class-card .class-content {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.instructors-grid .class-card .maestro-biography {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.instructors-grid .class-card.expanded .maestro-biography {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 .class-card:hover {
@@ -1033,7 +1803,7 @@ body {
 
 .class-image {
     width: 100%;
-    height: 200px;
+    height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -1050,28 +1820,38 @@ body {
 }
 
 .class-content {
-    padding: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .class-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
     color: #fab53b;
-    margin-bottom: 1rem;
 }
 
 .class-description {
     color: #b0b0b0;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-}
-
-.class-info {
-    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 3rem;
 }
 
 .class-instructor {
     margin-bottom: 1.5rem;
+    display: none;
+}
+
+.class-info {
+    margin-bottom: 1rem;
 }
 
 .instructor-label {
@@ -1102,13 +1882,14 @@ body {
 
 .class-schedule {
     margin-bottom: 1.5rem;
+    display: none;
 }
 
 .schedule-title {
     color: #fab53b;
     font-size: 1.1rem;
-    font-weight: 600;
     margin-bottom: 0.8rem;
+    font-weight: 600;
 }
 
 .schedule-items {
@@ -1138,9 +1919,202 @@ body {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Stili per le card espanse */
+.instructors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: start;
+}
+
+.class-card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    z-index: 1000;
+    overflow-y: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.class-card.expanded .class-image {
+    height: 250px;
+}
+
+.class-card.expanded .class-content {
+    padding: 2rem;
+}
+
+.class-card.expanded .class-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.class-card.expanded .class-description {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    max-height: unset;
+    margin-bottom: 2rem;
+}
+
+.class-card.expanded .class-info {
+    margin-bottom: 1.5rem;
+}
+
+.class-card.expanded .class-level {
+    font-size: 1.1rem;
+}
+
+.class-card.expanded .maestro-biography {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    max-height: unset;
+    overflow: visible;
+    margin-top: 1.5rem;
+}
+
+.class-card.expanded .maestro-biography h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.class-card.expanded .maestro-biography p {
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    max-height: unset;
+    margin-bottom: 1.5rem;
+}
+
+.class-card.expanded .maestro-biography ul {
+    margin-bottom: 1.5rem;
+}
+
+.class-card.expanded .maestro-biography li {
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    max-height: unset;
+    margin-bottom: 0.8rem;
+}
+
+.class-card.expanded .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.class-card.expanded .close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.class-card.expanded .instructor-actions {
+    display: none;
+}
+
+/* Stili per la biografia degli insegnanti */
+.maestro-biography {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.maestro-biography h4 {
+    color: #fab53b;
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.maestro-biography p {
+    color: #b0b0b0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 3.6rem;
+}
+
+.maestro-biography ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.maestro-biography li {
+    color: #b0b0b0;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    padding-left: 1rem;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 2.4rem;
+}
+
+.maestro-biography li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #fab53b;
+    font-weight: bold;
+}
+
+.class-level {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Azioni insegnante */
+.instructor-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(250, 181, 59, 0.1);
 }
 
 /* Stili per le card espanse */
@@ -1190,10 +2164,57 @@ body {
 
 .class-card.expanded .class-instructor {
     font-size: 1.2rem;
+    display: block;
+}
+
+.class-card.expanded .class-schedule {
+    display: block;
 }
 
 .class-card.expanded .instructor-link {
     font-size: 1.2rem;
+}
+
+.class-card.expanded .maestro-biography {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.class-card.expanded .maestro-biography h4 {
+    font-size: 1.3rem;
+    color: #fab53b;
+    margin-bottom: 1rem;
+}
+
+.class-card.expanded .maestro-biography p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+}
+
+.class-card.expanded .maestro-biography ul {
+    list-style: none;
+    padding: 0;
+}
+
+.class-card.expanded .maestro-biography li {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.class-card.expanded .maestro-biography li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #fab53b;
+    font-weight: bold;
 }
 
 .class-card.expanded .close-btn {
@@ -1218,4 +2239,109 @@ body {
 .class-card.expanded .close-btn:hover {
     background: #fab53b;
     transform: scale(1.1);
+}
+
+/* Stili per schede chiuse nella console */
+.class-card:not(.expanded) .maestro-biography {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(250, 181, 59, 0.2);
+    padding-bottom: 0;
+}
+
+.category-tab {
+    background: transparent;
+    border: none;
+    color: #b0b0b0;
+    padding: 1rem 2rem;
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px 8px 0 0;
+}
+
+.category-tab:hover {
+    color: #fab53b;
+    background: rgba(250, 181, 59, 0.1);
+}
+
+.category-tab.active {
+    color: #fab53b;
+    background: rgba(250, 181, 59, 0.15);
+    border-bottom: 2px solid #fab53b;
+    margin-bottom: -2px;
+}
+
+.category-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #fab53b;
+}
+
+/* Category Sections */
+.category-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.category-section.active {
+    display: block;
+}
+
+.category-title {
+    color: #fab53b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(250, 181, 59, 0.3);
+}
+
+/* Animation for tabs */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive tabs */
+@media (max-width: 768px) {
+    .category-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .category-tab {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .category-title {
+        font-size: 1.3rem;
+    }
 }

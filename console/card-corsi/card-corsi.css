@@ -1,0 +1,413 @@
+/* Animazione elementi dal basso */
+.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stili per le class-card */
+.class-card {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(250, 181, 59, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position: relative;
+    width: 370px;
+    height: 450px;
+}
+
+.class-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(250, 181, 59, 0.1);
+}
+
+.class-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(250, 181, 59, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+.class-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.class-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.class-card:hover .class-image img {
+    transform: scale(1.05);
+}
+
+.class-content {
+    padding: 2rem;
+}
+
+.class-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fab53b;
+}
+
+.class-description {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+    max-height: 4.8em;
+}
+
+.class-info {
+    display: none;
+}
+
+/* Overlay per sfondo sfuocato */
+.class-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.class-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Stati espansi per le card dei corsi */
+.class-card.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 80vh;
+    height: 85vh;
+    z-index: 1000;
+    cursor: default;
+    border-radius: 30px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    display: block !important;
+}
+
+.class-card.expanded-placeholder {
+    visibility: hidden;
+    height: 400px;
+    margin-bottom: 2.5rem;
+}
+
+.class-card.expanded .class-image {
+    height: 300px;
+}
+
+.class-card.expanded .class-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.class-card.expanded .class-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 0;
+    display: inline;
+    color: #b0b0b0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.class-card.expanded .class-description + .class-instructor {
+    display: inline;
+    margin-left: 0.5rem;
+    margin-top: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+.class-card.expanded .class-info {
+    display: none;
+}
+
+.class-card.expanded .class-instructor {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+.class-card.expanded .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(250, 181, 59, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.class-card.expanded .close-btn:hover {
+    background: #fab53b;
+    transform: scale(1.1);
+}
+
+/* Sezione giorni e orari */
+.class-schedule {
+    display: none;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+.class-card.expanded .class-schedule {
+    display: block;
+}
+
+.schedule-title {
+    color: #fab53b;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.schedule-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: rgba(250, 181, 59, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #fab53b;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    background: rgba(250, 181, 59, 0.2);
+    transform: translateX(5px);
+}
+
+.schedule-day {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.schedule-time {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Stili per la sezione insegnanti nelle schede corsi */
+.class-instructor {
+    display: none;
+}
+
+.class-card.expanded .class-instructor {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+.instructor-label {
+    color: #b0b0b0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.instructor-link {
+    color: #fab53b;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    line-height: 1.8;
+}
+
+.instructor-link:hover {
+    color: #ffffff;
+    border-bottom-color: #fab53b;
+    transform: translateY(-1px);
+}
+
+.instructor-link:active {
+    transform: translateY(0);
+}
+
+.course-separator {
+    color: #ffffff !important;
+    margin: 0 0.3rem;
+}
+
+/* Scrollbar personalizzata con stile glassmorphico - GLOBALE */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(20, 20, 20, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(250, 181, 59, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 4px;
+    border: 1px solid rgba(250, 181, 59, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(250, 181, 59, 0.5);
+    border: 1px solid rgba(250, 181, 59, 0.4);
+}
+
+/* Stili per Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(250, 181, 59, 0.3) rgba(20, 20, 20, 0.3);
+}
+
+/* Stili base per la pagina */
+body {
+    background: #0a0a0a;
+    color: #efefef;
+    font-family: 'Funnel Display', sans-serif;
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title, .page-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #efefef 30%, #fab53b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    body {
+        padding: 1rem;
+    }
+}

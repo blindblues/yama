@@ -1,0 +1,361 @@
+{
+    "corsi": [
+        {
+            "id": "course_69681c39",
+            "name": "TAKEMUSU AIKIDO",
+            "description": "Arte marziale giapponese basata sull'uso della forza dell'avversario per proiettarlo e controllarlo attraverso tecniche di leva e articolazioni.",
+            "category": "adulti",
+            "instructors": "Michel",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                },
+                {
+                    "day": "Mercoledì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/aikido.jpg"
+        },
+        {
+            "id": "course_33d940a7",
+            "name": "DAITO RYU AIKI JUJUTSU",
+            "description": "Antica arte marziale giapponese che si concentra sulle tecniche di controllo delle articolazioni e sul neutralizzare l'avversario con minima forza.",
+            "category": "adulti",
+            "instructors": "Pietro",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "20:30 - 22:00",
+                    "endTime": "22:00"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "20:30 - 22:00",
+                    "endTime": "22:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/jujutsu.jpg"
+        },
+        {
+            "id": "course_120454",
+            "name": "KARATE",
+            "description": "Arte marziale che sviluppa forza, flessibilità e disciplina attraverso tecniche di pugni, calci, parate e forme (kata).",
+            "category": "adulti",
+            "instructors": "Pietro",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "19:00 - 20:00",
+                    "endTime": "20:00"
+                },
+                {
+                    "day": "Mercoledì",
+                    "time": "19:00 - 20:00",
+                    "endTime": "20:00"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "19:00 - 20:00",
+                    "endTime": "20:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/karate.jpg"
+        },
+        {
+            "id": "course_2598d188",
+            "name": "MUAY THAI",
+            "description": "Arte marziale thailandese conosciuta come \"l'arte delle otto armi\" che utilizza pugni, gomiti, ginocchia e calci.",
+            "category": "adulti",
+            "instructors": "Roberto \/ Andrea \/ Elia",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "18:30 - 19:30",
+                    "endTime": "19:30"
+                },
+                {
+                    "day": "Martedì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/muaythai.jpg"
+        },
+        {
+            "id": "course_28b7f1e",
+            "name": "KICK BOXING – K1",
+            "description": "Disciplina da combattimento che combina tecniche di pugilato e calci, con regole che permettono colpi potenti e spettacolari.",
+            "category": "adulti",
+            "instructors": "Roberto \/ Andrea \/ Elia",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "19:00 - 20:00",
+                    "endTime": "20:00"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "19:00 - 20:00",
+                    "endTime": "20:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/kickboxe.jpg"
+        },
+        {
+            "id": "course_25ec33b8",
+            "name": "WONDER WOMEN",
+            "description": "Corso esclusivamente femminile che unisce difesa personale, preparazione fisica e crescita della fiducia in sé stesse.",
+            "category": "adulti",
+            "instructors": "Tatiana",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "18:30 - 19:15",
+                    "endTime": "19:15"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "18:30 - 19:15",
+                    "endTime": "19:15"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/wonderwomen.jpg"
+        },
+        {
+            "id": "course_1f970c49",
+            "name": "BOXE",
+            "description": "Nobile arte del pugilato che migliora coordinazione, resistenza e forza attraverso tecniche di attacco e difesa con i pugni.",
+            "category": "adulti",
+            "instructors": "David",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                },
+                {
+                    "day": "Mercoledì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "20:00 - 21:00",
+                    "endTime": "21:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/boxe.jpg"
+        },
+        {
+            "id": "course_63fee78d",
+            "name": "KOMBAT TRAINING",
+            "description": "Allenamento funzionale che combina tecniche di diverse arti marziali per una preparazione fisica completa ed efficace.",
+            "category": "adulti",
+            "instructors": "Tatiana",
+            "schedule": [
+                {
+                    "day": "Mercoledì",
+                    "time": "18:30 - 19:45",
+                    "endTime": "19:45"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "18:30 - 19:45",
+                    "endTime": "19:45"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/kombattraining.jpg"
+        },
+        {
+            "id": "course_51aff05a",
+            "name": "BRAZILIAN JIUJITSU",
+            "description": "Arte marziale focalizzata sulla lotta a terra, leve articolari e strangolamenti, ideale per sconfiggere avversari più grandi.",
+            "category": "adulti",
+            "instructors": "Matteo",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "21:00 - 22:00",
+                    "endTime": "22:00"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "21:00 - 22:00",
+                    "endTime": "22:00"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/brazilianjiujitsu.jpg"
+        },
+        {
+            "id": "course_1fdf310c",
+            "name": "MMA",
+            "description": "Mixed Martial Arts - disciplina completa che integra tecniche di striking e grappling per il combattimento totale.",
+            "category": "adulti",
+            "instructors": "Ermanno \/ Elia",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "21:00 - 22:30",
+                    "endTime": "22:30"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "21:00 - 22:30",
+                    "endTime": "22:30"
+                }
+            ],
+            "duration": "",
+            "image": "img\/corsi\/adulti\/mma.jpg"
+        },
+        {
+            "id": "course_42e56b79",
+            "name": "MARTIAL KIDZ",
+            "description": "Questo indirizzo nasce con lo scopo di creare una base completa a 360 gradi dalla la crescita psicomotoria alla crescita sociale del bambino\/a nel modo completo possibile",
+            "category": "ragazzi",
+            "instructors": "Giulia",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "17:30 - 18:15",
+                    "startTime": "17:30",
+                    "endTime": "18:15"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "17:30 - 18:15",
+                    "startTime": "17:30",
+                    "endTime": "18:15"
+                }
+            ],
+            "level": "",
+            "duration": "",
+            "price": "",
+            "image": "img\/corsi\/ragazzi\/martialkidz.png"
+        },
+        {
+            "id": "course_5b6e7dd1",
+            "name": "MUAY THAI JUNIOR",
+            "description": "Corso base per bambini dalla prima alla quinta elementare. In questo corso vengono insegnati i principi base e le tecniche iniziali della Muay Thai",
+            "category": "ragazzi",
+            "instructors": "Tatiana \/ Elia",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "17:30 - 18:20",
+                    "startTime": "17:30",
+                    "endTime": "18:20"
+                },
+                {
+                    "day": "Venerdì",
+                    "time": "17:30 - 18:20",
+                    "startTime": "17:30",
+                    "endTime": "18:20"
+                }
+            ],
+            "level": "",
+            "duration": "",
+            "price": "",
+            "image": "img\/corsi\/ragazzi\/muaythaijunior.png"
+        },
+        {
+            "id": "course_4d81b6e8",
+            "name": "MUAY THAI YOUNG",
+            "description": "Il corso è adatto ai ragazzi che frequentano la Scuola Secondaria di primo grado",
+            "category": "ragazzi",
+            "instructors": "Tatiana \/ Elia",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "18:30 - 19:30",
+                    "startTime": "18:30",
+                    "endTime": "19:30"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "18:30 - 19:30",
+                    "startTime": "18:30",
+                    "endTime": "19:30"
+                }
+            ],
+            "level": "",
+            "duration": "",
+            "price": "",
+            "image": "img\/corsi\/ragazzi\/muaythaiyoung.png"
+        },
+        {
+            "id": "course_23bb5f8b",
+            "name": "BJJ JUNIOR",
+            "description": "Adatto per i bimbi dalla prima elementare",
+            "category": "ragazzi",
+            "instructors": "Matteo",
+            "schedule": [
+                {
+                    "day": "Lunedì",
+                    "time": "17:30 - 18:20",
+                    "startTime": "17:30",
+                    "endTime": "18:20"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "17:30 - 18:20",
+                    "startTime": "17:30",
+                    "endTime": "18:20"
+                }
+            ],
+            "level": "",
+            "duration": "",
+            "price": "",
+            "image": "img\/corsi\/ragazzi\/bjjjunior.png"
+        },
+        {
+            "id": "course_1c59a022",
+            "name": "MUAY THAI TEEN",
+            "description": "Adatto per ragazzi dalle prima alla terza  superiore",
+            "category": "ragazzi",
+            "instructors": "Tatiana \/ Elia",
+            "schedule": [
+                {
+                    "day": "Martedì",
+                    "time": "19:45 - 20:45",
+                    "startTime": "19:45",
+                    "endTime": "20:45"
+                },
+                {
+                    "day": "Giovedì",
+                    "time": "19:45 - 20:45",
+                    "startTime": "19:45",
+                    "endTime": "20:45"
+                }
+            ],
+            "level": "",
+            "duration": "",
+            "price": "",
+            "image": "img\/corsi\/ragazzi\/muaythaiteen.png"
+        }
+    ],
+    "lastUpdated": "2025-12-11T17:02:31+01:00",
+    "totalCourses": 26
+}

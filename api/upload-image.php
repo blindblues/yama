@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Configurazione
 $uploadDir = __DIR__ . '/../img/corsi/';
-$maxFileSize = 5 * 1024 * 1024; // 5MB
+$maxFileSize = 50 * 1024 * 1024; // 50MB
 $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
 $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
@@ -60,7 +60,7 @@ try {
         switch ($errorCode) {
             case UPLOAD_ERR_INI_SIZE:
             case UPLOAD_ERR_FORM_SIZE:
-                throw new Exception('File troppo grande. Dimensione massima: 5MB');
+                throw new Exception('File troppo grande. Dimensione massima: 50MB');
             case UPLOAD_ERR_PARTIAL:
                 throw new Exception('Caricamento del file interrotto');
             case UPLOAD_ERR_NO_FILE:
@@ -111,7 +111,7 @@ try {
             'size' => $file['size'],
             'max_size' => $maxFileSize
         ]);
-        throw new Exception('File troppo grande. Dimensione massima: 5MB');
+        throw new Exception('File troppo grande. Dimensione massima: 50MB');
     }
 
     // Verifica che il file sia un'immagine valida

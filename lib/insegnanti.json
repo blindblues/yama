@@ -1,0 +1,142 @@
+{
+    "insegnanti": [
+        {
+            "id": "ins_001",
+            "name": "Roberto Vecchia",
+            "discipline": "MUAY THAI",
+            "biography": "Sin da bambino ho sempre avuto una passione profonda per le arti marziali e gli sport da combattimento in tutte le sue forme e, dal 1° giorno di pratica, ho sempre messo tutto me stesso nel loro apprendimento e nell'allenamento sia mentale che fisico.\nOggi dopo tanti anni nulla è cambiato, il bello di queste discipline è che si cerca sempre di migliorare se stessi ed il proprio team… STRONG SPIRIT in STRONG BODY!",
+            "achievementstitle": "Principali traguardi",
+            "achievements": [
+                "Due volte campione italiano di Kickboxing e Muay Thai",
+                "Campione italiano di Shoot boxe",
+                "Cintura nera di Kickboxing",
+                "Cintura nera di Shoot Boxe",
+                "XII° Khan di Muay Thai (Instructor Red Mongkon)",
+                "Cintura marrone di Ju-Jitsu tradizionale",
+                "per un totale di 28 anni di esperienza!"
+            ],
+            "image": "img\/insegnanti\/robertovecchia.png"
+        },
+        {
+            "id": "ins_002",
+            "name": "Andrea Tran",
+            "discipline": "MUAY THAI",
+            "biography": "Non si smette mai di imparare, sia dai propri Maestri sia dai propri Allievi\n\nHo sempre avuto un innata passione per le arti mariali.Non solo per le mie origine asiatiche ma soprattutto per la voglia di cimentarmi e sfidare costantemente la mia voglia di apprendere. Ho iniziato relativamente tardi – 2002  –  in un batter d'occhio sono volati 20 anni di pratica marziale. Sono insegnante di Muay Thai e Kickboxing K1.\n\nDiscipline in cui ho gareggiato e accumulato esperienza attraverso la guida del M° Roberto Vecchia e con cui nel 2016 ho aperto Yamakasi Fight Academy.\n\nProprio attraverso questa nuova realtà che ho conosciuto il Brazilian Jiu Jitsu – con il M° Matteo Cazzola del lineage Leteri.\n\nDopo anni di striking, la mancanza di una conoscenza marziale a terra era evidente, preso dalla curiosità ho iniziato a frequentare le lezioni sempre più assiduamente e ogni volta con una sete di conoscenza più ampia.\n\nLa cosa più speciale del BJJ è che ti entra nello spirito a piccoli passi e non ti molla più! Attualmente sono cintura Azzurra in questa disciplina",
+            "achievementstitle": "",
+            "achievements": [
+                "Due volte campione italiano di Kickboxing e Muay Thai",
+                "Campione italiano di Shoot boxe",
+                "Cintura nera di Kickboxing",
+                "Cintura nera di Shoot Boxe",
+                "XII° Khan di Muay Thai (Instructor Red Mongkon)",
+                "Cintura marrone di Ju-Jitsu tradizionale",
+                "per un totale di 28 anni di esperienza!"
+            ],
+            "image": "img\/insegnanti\/andreatran.png"
+        },
+        {
+            "id": "ins_003",
+            "name": "Matteo Cazzola",
+            "discipline": "BRAZILIAN JIU-JITSU",
+            "image": "img\/insegnanti\/matteocazzola.png",
+            "biography": "Quando iniziai inconsapevolmente all'età di soli 7 anni con il Judo, guardavo il Maestro Salardi come un esempio a cui ispirarmi…ed oggi dopo 30 anni quella figura da seguire sono io.\nDal 2003 mi avvicinai al Submission Wrestling (più avanti verrà chiamato Grappling) guidato dai maestri Bertoli.\n\nLa vera passione arrivò con il BJJ (Brasilian Jiu Jitsu) a partire dal 2008 quando conobbi i Maestri Leteri : decisi che quella sarebbe diventata la mia strada!\nOggi sono cintura Nera di BJJ e dirigo il team Fratelli Leteri in Italia, i miei Maestri Leonardo e Marcel guidano le rispettive sedi in Brasile ed Australia.\nIl mio pensiero è che in questa disciplina sia fondamentale che l'insegnante si confronti sempre con i suoi allievi e abbia maturato una esperienza agonistica reale: lottare nei vari campionati ti insegna spesso ciò che non sapevi prima, ti spinge a superare i tuoi limiti ed il confronto con avversari sempre nuovi ti porta fuori dagli schemi e dalla comfort zone che si crea in dojo nella lotta con i compagni di squadra.\nLì si impara e si evolve rapidamente.\nOltre ai titoli e alle medaglie che ho conquistato le cose che più contano sono la passione e saper trasmettere la conoscenza tecnica unendola all'esperienza reale maturata.\n\nQuesto è quello che offro ai miei studenti ogni giorno.",
+            "achievementstitle": "Principali traguardi",
+            "achievements": [
+                "2x IBJJF European Open Bronze Medallist (2013 adult, 2017 master)",
+                "1x IBJJF European No-Gi Bronze Medallist (2014 adult",
+                "2x Figmma Italian No-Gi Champion (2011-2012)",
+                "1x IBJJF London Open No-Gi Bronze Medallist (2014 adult)",
+                "5th place FILA World Championship grappling-gi (2012)",
+                "3x UIJJ Italian Open Medallist (2013, 2014, 2016)",
+                "3x UIJJ Milano Challenge Medallist (2013, 2014, 2016)",
+                "3x UIJJ Torino Challenge Medallist (2011, 2014)"
+            ]
+        },
+        {
+            "id": "ins_004",
+            "name": "Pietro Vaccari",
+            "discipline": "DAITO RYU AIKI JUJUTSU",
+            "image": "img\/insegnanti\/pietrovaccari.png",
+            "biography": "Mi sono avvicinato alle arti marziali a 8 anni, iniziando con il judo, una disciplina a me molto cara. A 18 anni ho iniziato la pratica del Daito Ryu Aiki Jujutsu, una disciplina che mi ha colpito per il suo carico di storia e tradizione, che rimane però tutt'oggi molto attuale ed efficace.\nIl motto della nostra scuola è JITA KYOEI, ciò che ho ricevuto ridono, il che riflette la profonda volontà di trasmissione delle conoscenze che questa scuola, della quale sono orgoglioso di fare parte, offre al prossimo.",
+            "achievementstitle": "Principali traguardi",
+            "achievements": [
+                "4° Dan Daito Ryu Aiki Jujutsu",
+                "4° Dan Tenshin Shoden Katori Shinto Ryu",
+                "3° Dan Gyokushin Ryu Aikido",
+                "2° Dan Judo"
+            ]
+        },
+        {
+            "id": "ins_005",
+            "name": "Michel Lupa",
+            "discipline": "TAKEMUSU AIKIDO",
+            "image": "img\/insegnanti\/michellupa.png",
+            "biography": "La mia passione per l'Aikido è nata nel 1996 con il Maestro Luciano LoMonaco al tempo (3° Dan AIKIKAI) Nel 1999 ho incontrato il Maestro Fausto De Compadri (7° Dan F.I.J.L.K.A.M.,6° Dan T.A.A.I, 5° Dan AIKIKAI) e ho iniziato a frequentare il suo dojo. Nel 2014 ho ricevuto la nomina come Responsabile Regionale VENETO settore Aikido.",
+            "achievementstitle": "Stage con Maestri di alto livello",
+            "achievements": [
+                "M° Stephan Benedetti (6° Dan AIKIKAI)",
+                "M° Fausto De Compadri (7° Dan F.I.J.L.K.A.M.,6° Dan T.A.A.I, 5° Dan AIKIKAI)",
+                "M°Paolo Corallini (7° Dan AIKIKAI)",
+                "M° Bill Witt Shihan (7° Dan AIKIKAI)",
+                "M° Wolfgang Baumgartner (6° Dan AIKIKAI, 6° Dan Iwama Ryu, 5°Dan Iwama Ryu Ken \/Jo )",
+                "M° Hitohira Saito"
+            ]
+        },
+        {
+            "id": "ins_006",
+            "name": "Tatiana Rondanin",
+            "discipline": "MUAY THAI JUNIOR",
+            "image": "img\/insegnanti\/tatianarondanin.png",
+            "biography": "Da bambina ho provato tanti sport ma nessuno mi ha mai appassionata veramente.\nSolo da ragazza ho conosciuto questa disciplina, che mi ha coinvolto subito!\nEssendo piccola e magrolina mai avrei pensato che uno sport così mi avrebbe reso forte nel fisico, ma soprattutto nello spirito, tanto da combattere la mia grande timidezza e tutte le mie paure.\nHo frequentato per tanti anni la palestra prima praticando kickboxing per poi passare alla Savate (boxe francese).\nDiventata mamma ho deciso di alimentare questa passione insegnando ai piccoli atleti, continuando così a crescere nello spirito grazie a loro",
+            "achievementstitle": "",
+            "achievements": []
+        },
+        {
+            "id": "ins_007",
+            "name": "Giulia Nussdorfer",
+            "discipline": "MARTIAL KIDZ",
+            "image": "img\/insegnanti\/giulianussdorfer.png",
+            "biography": "Paracadutista da più di 10 anni mi trasferisco a Verona per lavoro e nel 2019 nasce mia figlia. La laurea in Scienze Motorie mi ha portato ad una maggior consapevolezza del movimento nello sport ed ho spostato il focus da quantità a qualità.\n\nQuando un bambino ha la possibilità di mettersi alla prova in differenti avventure motorie avrà la capacità di costruirsi una mente aperta all'apprendimento e alla conoscenza.\n\nGrata di insegnare in questa scuola.Da quando metti piede all'ingresso ti fa sentire in una seconda casa.",
+            "achievementstitle": "",
+            "achievements": []
+        },
+        {
+            "id": "ins_008",
+            "name": "Corradi Pietro",
+            "discipline": "MUAY THAI",
+            "image": "img\/insegnanti\/pietrocorradi.png",
+            "biography": "Ho iniziato a praticare le arti marziali nel 2012 all'età 15 anni, venendone a contatto attraverso il Taekwondo.\nDopo due anni di pratica ho deciso di cambiare disciplina, cercandone una completa, immediata ed efficace.\n\nDopo alcune prove ho scoperto la Muay Thai e la Kickboxing presso la Yamakasi Fight Academy. Sono rimasto colpito dall'immediatezza delle discipline, ma allo stresso momento dai mille dettagli necessari per applicare al meglio le diverse tecniche con la massima efficacia e dal lavoro di strategia che va applicato durante i match.\n\nPer 8 anni ho continuato ad allenarmi ed esercitarmi con passione, fino ad ottenere il diploma da istruttore nel 2021  con il maestro Alfio Romanut.\n\nOra affianco i miei maestri Roberto Vecchia e Andrea Tran nell'insegnamento delle discipline alla YFA.",
+            "achievementstitle": "",
+            "achievements": []
+        },
+        {
+            "id": "ins_009",
+            "name": "Elia Peraro",
+            "discipline": "MUAY THAI TEEN",
+            "image": "img\/insegnanti\/eliaperaro.png",
+            "biography": "Le arti marziali sono parte integrante della mia vita sin da bambino, all'età di sette anni, ho avuto il piacere di avvicinarmi a questo mondo tramite la pratica del Kendō, un'antica disciplina di origine giapponese basata sullo stile di combattimento dei samurai. Quest'arte marziale mi ha accompagnato per undici anni, fino al conseguimento del grado ufficiale di 1° DAN, formandomi sia come persona che come atleta e facendomi provare sulla pelle il mondo delle competizioni sia nazionali che internazionali.\n\nSuccessivamente, ho praticato per qualche mese il Wing Chun, che mi ha permesso di conoscere il mondo del combattimento a mani nude e mi ha avvicinato agli sport da combattimento, permettendomi di scoprire infine la mia vocazione.\nAttualmente, pratico Muay Thai e Kickboxing, due discipline che mi hanno incantato per la loro praticità, efficacia, capacità di spronare gli atleti a superare ogni limite sia mentale che fisico e per l'ambiente caratterizzato dal rispetto reciproco. Dopo qualche anno di pratica, ho avuto l'opportunità di guidare i corsi Muay Thai Teen e Wonder Women, nei quali ho intenzione di dare tutto me stesso per riuscire a trasmettere la passione e l'amore per queste discipline.\n\nIn conclusione, le arti marziali sono una parte fondamentale e insostituibile della mia persona e credo che chiunque debba avvicinarsi a questi mondi per la loro capacità di forgiare il corpo e il carattere dei praticanti.",
+            "achievementstitle": "",
+            "achievements": []
+        },
+        {
+            "id": "ins_010",
+            "name": "David Scardigno",
+            "discipline": "BOXE",
+            "image": "img\/insegnanti\/davidscardigno.png",
+            "biography": "Sin da quando ero ragazzo ho sempre adorato quella sensazione che si prova durante e dopo una attività fisico intensa, quando i muscoli dicono basta ma il tuo spirito sa che poi la ricompensa sarà sempre più grande della fatica che stai affrontando.\n\nCon questa attitudine dopo aver provato svariati sport e un anno di Vovinam Viet vo Dao ho cominciato a frequentare circa 12 anni fà la palestra del Maestro Roberto Vecchia e Maestro Andrea Tran, appassionandomi fin da subito alla kickboxing K1 ed al loro splendido modo di insegnare e farti sentire come in famiglia.\n\nNegli anni la passione per gli sport da contatto mi ha sempre più coinvolto portandomi a frequentare anche due palestre di pugilato dal maestro Pierino Ruga e maestro Luca Tescaroli, salvo poi tornare sempre a quello che considero il miglior sport da combattimento per completezza ed efficacia dei colpi ovvero la kickboxing K1 alla Yamakasi Fight Academy.\n\nOggi continuo ad allenarmi al massimo della mia capacità avendo l'onore di poter affiancare i miei due maestri Roberto ed Andrea nell'insegnamento di questa splendida discplina.\n\n\"Ogni grande avventura ha un principio, ma è la strada da percorrere, quella che conduce al suo termine, che riserva la vera gloria!\".",
+            "achievementstitle": "",
+            "achievements": []
+        },
+        {
+            "id": "ins_011",
+            "name": "Ermanno Mazzi",
+            "discipline": "BRAZILIAN JIU JITSU TEEN",
+            "image": "img\/insegnanti\/ermannomazzi.png",
+            "biography": "Sono entrato nel mondo delle arti marziali nel 2014 a 16 anni con lo Yoseikan Budo,\ni maestri Rodolfo Amatobene e Vittorio Ciaglia mi hanno insegnato un'arte che comprende ogni aspetto del combattimento, in piedi e a terra, con armi e persino a cavallo.\n\nDopo anni ho capito che, se volevo anche solo avvicinarmi alla conoscenza di alcuni maestri, dovevo uscire dalla mia zona di comfort e ricominciare dalle basi che compongono il cerchio.\nCosì nel 2020 mi sono rimesso la cintura bianca e presentato dai Fratelli Leteri, dove i maestri: Matteo Cazzola, Andrè Ribeiro e Sebastiano Degan\nmi hanno trasmesso la loro passione per il BJJ.\n\nNel 2022 ho deciso di ricominciare il mio percorso di striking nella Yamakasi con i maestri: Roberto Vecchia e Andrea Tran, David, Pietro ed Elia.\nOggi continuo a praticare tutte le arti marziali da me iniziate, costantemente e con determinazione, in ognuna delle quali sono agonista.",
+            "achievementstitle": "",
+            "achievements": []
+        }
+    ],
+    "lastUpdated": "2025-12-12T17:06:20+01:00",
+    "totalInstructors": 11
+}

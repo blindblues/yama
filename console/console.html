@@ -7,20 +7,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="console.css">
-    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <link rel="stylesheet" href="console.css?v=1765467820000">
+    <link rel="icon" type="image/svg+xml" href="" id="faviconLink">
 </head>
 <body>
     <div class="console-container">
         <header class="console-header">
             <div class="logo-area">
-                <img src="../logo.svg" class="console-logo" alt="Yamakasi Logo">
-                <h1 class="console-title">Gestione Corsi</h1>
+                <img src="" class="console-logo" alt="Yamakasi Logo" id="consoleLogo">
+                <h1 class="console-title">Pannello di Controllo</h1>
+                <button id="viewSiteBtn" class="view-site-btn" onclick="window.open(window.PathConfig.index(), '_blank')" title="Apri il sito in una nuova finestra">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    VISITA IL SITO
+                </button>
             </div>
         </header>
 
         <main class="console-main">
-            <div class="console-content">
+            <!-- Tab navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="1">Corsi</button>
+                <button class="tab-btn" data-tab="2">Insegnanti</button>
+                <button class="tab-btn" data-tab="3">Blog</button>
+            </div>
+
+            <!-- Tab content containers -->
+            <div class="console-content active" data-content="1">
                 <div class="course-manager">
                     <h2 class="section-title">Gestione Corsi</h2>
                     
@@ -52,62 +66,19 @@
                                     
                                     <div class="form-group">
                                         <label for="courseImageUpload">Immagine Corso</label>
-                                        <input type="file" id="courseImageUpload" name="courseImageUpload" accept="image/*" required>
+                                        <input type="file" id="courseImageUpload" name="courseImageUpload" accept="image/*">
                                         <div id="imagePreview" class="image-preview"></div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="courseInstructors">Insegnanti</label>
                                         <div class="instructors-dropdown">
-                                            <div class="dropdown-header" onclick="toggleInstructorsDropdown()">
+                                            <div class="dropdown-header">
                                                 <span id="selectedInstructorsText">Seleziona insegnanti...</span>
                                                 <span class="dropdown-arrow">▼</span>
                                             </div>
                                             <div id="instructorsDropdown" class="dropdown-content">
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_roberto" value="Roberto">
-                                                    <label for="instructor_roberto">Roberto</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_andrea" value="Andrea">
-                                                    <label for="instructor_andrea">Andrea</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_matteo" value="Matteo">
-                                                    <label for="instructor_matteo">Matteo</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_pietro" value="Pietro">
-                                                    <label for="instructor_pietro">Pietro</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_michel" value="Michel">
-                                                    <label for="instructor_michel">Michel</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_tatiana" value="Tatiana">
-                                                    <label for="instructor_tatiana">Tatiana</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_giulia" value="Giulia">
-                                                    <label for="instructor_giulia">Giulia</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_pietro_corradi" value="Pietro Corradi">
-                                                    <label for="instructor_pietro_corradi">Pietro Corradi</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_elia" value="Elia">
-                                                    <label for="instructor_elia">Elia</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_david" value="David">
-                                                    <label for="instructor_david">David</label>
-                                                </div>
-                                                <div class="dropdown-item">
-                                                    <input type="checkbox" id="instructor_ermanno" value="Ermanno">
-                                                    <label for="instructor_ermanno">Ermanno</label>
-                                                </div>
+                                                <!-- Gli insegnanti verranno caricati dinamicamente dal JSON -->
                                             </div>
                                         </div>
                                         <input type="hidden" id="courseInstructors" name="courseInstructors" value="">
@@ -181,15 +152,141 @@
                     <!-- Lista corsi esistenti -->
                     <div class="courses-list-section">
                         <h3>Corsi Esistenti</h3>
-                        <div id="coursesList" class="courses-grid">
-                            <!-- I corsi verranno caricati qui -->
+                        
+                        <!-- Tabs per navigazione categorie -->
+                        <div class="category-tabs">
+                            <button class="category-tab active" data-category="adulti" onclick="showCategory('adulti')">Corsi Adulti</button>
+                            <button class="category-tab" data-category="ragazzi" onclick="showCategory('ragazzi')">Corsi Ragazzi</button>
+                        </div>
+                        
+                        <!-- Sezione per corsi adulti -->
+                        <div id="adultiCourses" class="category-section active">
+                            <div id="adultiCoursesList" class="courses-grid">
+                                <!-- I corsi adulti verranno caricati qui -->
+                            </div>
+                        </div>
+                        
+                        <!-- Sezione per corsi ragazzi -->
+                        <div id="ragazziCourses" class="category-section">
+                            <div id="ragazziCoursesList" class="courses-grid">
+                                <!-- I corsi ragazzi verranno caricati qui -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Second tab - Insegnanti -->
+            <div class="console-content" data-content="2">
+                <div class="instructor-manager">
+                    <h2 class="section-title">Gestione Insegnanti</h2>
+                    
+                    <!-- Form per modificare insegnante -->
+                    <div class="instructor-form-section">
+                        <h3>Modifica Scheda Insegnante</h3>
+                        <div class="form-container">
+                            <div class="form-area">
+                                <form id="instructorForm" class="instructor-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="instructorName">Nome*</label>
+                                            <input type="text" id="instructorName" name="instructorName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="instructorDiscipline">Disciplina*</label>
+                                            <div class="discipline-dropdown">
+                                                <div class="discipline-dropdown-header" onclick="toggleDisciplineDropdown()">
+                                                    <span id="selectedDisciplineText">Seleziona disciplina...</span>
+                                                    <span class="discipline-dropdown-arrow">▼</span>
+                                                </div>
+                                                <div id="disciplineDropdownContent" class="discipline-dropdown-content">
+                                                    <div id="disciplineOptions" class="discipline-options">
+                                                        <!-- Le opzioni verranno caricate qui -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="instructorDiscipline" name="instructorDiscipline" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="instructorImageUpload">Immagine Insegnante</label>
+                                        <input type="file" id="instructorImageUpload" name="instructorImageUpload" accept="image/*">
+                                        <div id="instructorImagePreview" class="image-preview"></div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="instructorBiography">Biografia*</label>
+                                        <textarea id="instructorBiography" name="instructorBiography" rows="8" required></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="instructorTitle">Titoli</label>
+                                        <input type="text" id="instructorTitle" name="instructorTitle" placeholder="Inserisci il titolo principale">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="instructorAchievements">Lista Titoli</label>
+                                        <input type="text" id="instructorAchievements" name="instructorAchievements" placeholder="Inserisci i titoli separati da virgola">
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="submit-btn">Salva Modifiche</button>
+                                        <button type="reset" class="reset-btn">Reset</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Anteprima scheda insegnante -->
+                            <div class="preview-area">
+                                <h4>Anteprima Scheda Insegnante</h4>
+                                 
+                                <div class="preview-section">
+                                    <div id="instructorPreview" class="class-card animate-up">
+                                        <button class="close-btn" style="display: none;">×</button>
+                                        <div class="class-image">
+                                            <img src="" alt="Anteprima immagine insegnante" style="display: none;">
+                                        </div>
+                                        <div class="class-content">
+                                            <h3 class="class-title">Nome Insegnante</h3>
+                                            <div class="class-info">
+                                                <span class="class-level">Disciplina</span>
+                                            </div>
+                                            <div class="maestro-biography">
+                                                <h4>Biografia</h4>
+                                                <p>La biografia dell'insegnante apparirà qui...</p>
+                                                <h4>Titoli</h4>
+                                                <ul>
+                                                    <li>I titoli appariranno qui...</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instructors-list-section">
+                        <h3>Insegnanti Esistenti</h3>
+                        
+                        <!-- Sezione per insegnanti -->
+                        <div id="instructorsList" class="instructors-grid">
+                            <!-- Gli insegnanti verranno caricati dinamicamente dal JSON -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                        <!-- Third tab - Copy of console-content -->
+            <div class="console-content" data-content="3">
+            </div>
         </main>
     </div>
 
+    <script src="path-config.js"></script>
+    <script src="instructor-data-manager.js"></script>
+    <script src="course-library-manager.js?v=1765467700000"></script>
     <script src="console.js"></script>
+    <script src="instructor-manager.js"></script>
+    <script src="tab-functions.js"></script>
 </body>
 </html>

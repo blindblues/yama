@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Upload</title>
+</head>
+<body>
+    <h2>Test Upload Immagini</h2>
+    <form action="api/upload-image.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <select name="category">
+            <option value="adulti">Adulti</option>
+            <option value="ragazzi">Ragazzi</option>
+        </select><br><br>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.querySelector('form').onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const response = await fetch('api/upload-image.php', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('result').innerHTML = 
+                '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+        };
+    </script>
+</body>
+</html>
